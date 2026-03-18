@@ -185,6 +185,14 @@
     background: #1d1d1f;
     border-color: #424245;
 }
+.reveal .tree-diagram {
+    background: none;
+    box-shadow: none;
+    border: none;
+    text-align: left;
+    transform: scale(1.25);
+    transform-origin: top center;
+}
 </style>
 
 <!-- .slide: data-auto-animate data-background-color="#000000" -->
@@ -777,7 +785,7 @@ Note: EmergencyCase has no assignWaitingArea(). ObservationCase has no assignER(
 
 ## The Subject Transforms
 
-<pre style="background: none; box-shadow: none; border: none; font-size: 0.75em; line-height: 2.2;">
+<pre class="tree-diagram" style="font-size: 0.55em; line-height: 2.2; margin-bottom: 4em;">
 <span style="color:#86868b">[Input]</span>  <span style="color:#d63384">PatientArrivalInput</span> (<span style="color:#0071e3">$bodyTemperature</span>, <span style="color:#0071e3">$heartRate</span>)
             |
 <span style="color:#86868b">[Being]</span>  <span style="color:#d63384">TriageAssessment</span>  <span style="color:#0071e3">$being</span>
@@ -800,7 +808,7 @@ Note: The patient is not processed. The patient transforms. Language is the hous
 
 ## The Same Structure, However Complex
 
-<pre style="background: none; box-shadow: none; border: none; font-size: 0.4em; line-height: 1.1; text-align: left; transform: translateX(-8em);">
+<pre class="tree-diagram" style="font-size: 0.38em; line-height: 1.15; margin-bottom: 8em;">
 <span style="color:#d63384">OrderInput</span> (<span style="color:#0071e3">$items</span>, <span style="color:#0071e3">$customer</span>, <span style="color:#0071e3">$payment</span>)
     |
 <span style="color:#d63384">ValidationOrder</span> <span style="color:#0071e3">$being</span>
@@ -1029,7 +1037,7 @@ Note: How did this feel to you? It may have seemed strange. But perhaps some of 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"_site"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/tmp/be-slide-en-static"}, queryOptions);
     </script>
 
 
