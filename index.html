@@ -185,6 +185,21 @@
     background: #1d1d1f;
     border-color: #424245;
 }
+.reveal .slides section.overflow-visible {
+    overflow: visible !important;
+}
+.reveal .tree-diagram {
+    background: none;
+    box-shadow: none;
+    border: none;
+    text-align: left;
+    transform: scale(1.25);
+    transform-origin: top center;
+}
+.reveal .callout {
+    font-size: 1.2em;
+    margin-top: 1.5em;
+}
 </style>
 
 <!-- .slide: data-auto-animate data-background-color="#000000" -->
@@ -368,7 +383,7 @@ Note: 手続き型はデータとロジックが分離していた。OOPはそ�
 
 ## 問いの転換
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 ```
 HOW?      どうやるか（手続き型）
@@ -389,7 +404,7 @@ Note: 手続き型→HOW、OOP→WHAT、ここまでは馴染みがあるはず�
 
 ## それは存在可能か
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 ```
 年齢がマイナスの人はいない
@@ -500,7 +515,7 @@ Note: WHERE?ではなくWHETHER?
 
 ## 万物流転
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 卵 → 幼虫 → さなぎ → 蝶
 
@@ -778,7 +793,7 @@ Note: EmergencyCaseにassignWaitingArea()はない。ObservationCaseにassignER(
 
 ## 主体が変わっていく
 
-<pre style="background: none; box-shadow: none; border: none; font-size: 0.75em; line-height: 2.2;">
+<pre class="tree-diagram" style="font-size: 0.55em; line-height: 2.2; margin-bottom: 4em;">
 <span style="color:#86868b">[Input]</span>  <span style="color:#d63384">PatientArrivalInput</span> (<span style="color:#0071e3">$bodyTemperature</span>, <span style="color:#0071e3">$heartRate</span>)
             |
 <span style="color:#86868b">[Being]</span>  <span style="color:#d63384">TriageAssessment</span>  <span style="color:#0071e3">$being</span>
@@ -797,11 +812,11 @@ Note: 患者は処理されない。患者が変わっていく。言葉は存�
 
 ---
 
-<!-- .slide: data-auto-animate -->
+<!-- .slide: data-auto-animate class="overflow-visible" -->
 
 ## 複雑な世界も同じ構造
 
-<pre style="background: none; box-shadow: none; border: none; font-size: 0.5em; line-height: 1.1; text-align: left; transform: translateX(-8em);">
+<pre class="tree-diagram" style="font-size: 0.38em; line-height: 1.15; margin-bottom: 8em;">
 <span style="color:#d63384">OrderInput</span> (<span style="color:#0071e3">$items</span>, <span style="color:#0071e3">$customer</span>, <span style="color:#0071e3">$payment</span>)
     |
 <span style="color:#d63384">ValidationOrder</span> <span style="color:#0071e3">$being</span>
@@ -829,7 +844,7 @@ Note: 患者は処理されない。患者が変わっていく。言葉は存�
                                                                                               +--- <span class="final-node">ReturnedOrder</span> <span style="color:#0071e3">$been</span>
 </pre>
 
-<div class="epigraph">
+<div class="epigraph" style="margin-top: 0.5em;">
 道は常に無為にして、而も為さざることなし——老子（紀元前6世紀）
 </div>
 
@@ -862,7 +877,7 @@ Note: OrderInputが入り、Becomingの中で一度消え、$finalとして新�
 
 ## DX から AX へ
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 ```
 DX：人間にとって書きやすいコード
