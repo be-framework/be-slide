@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="\r?\n---\r?\n" data-separator-vertical="\r?\n----\r?\n">
+          <textarea data-template>
+            
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.reveal {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 36px;
+    color: #1d1d1f;
+    background: #fbfbfd;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+.reveal h1 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.03em;
+    text-transform: none;
+    color: #1d1d1f;
+}
+.reveal h2 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.4em;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+}
+.reveal h3 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.3em;
+    letter-spacing: -0.01em;
+    color: #1d1d1f;
+}
+.reveal p, .reveal li {
+    font-size: 0.75em;
+    line-height: 1.6;
+    margin-bottom: 0.4em;
+    color: #1d1d1f;
+}
+.reveal pre {
+    font-size: 0.55em;
+    line-height: 1.3;
+    margin: 0.3em auto;
+    max-width: 70%;
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 0.6em 0.8em;
+    border: 1px solid #e8e8ed;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.reveal pre code {
+    background: transparent;
+    padding: 0;
+}
+.reveal code {
+    font-size: 0.8em;
+    font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+    background: #f5f5f7;
+    border-radius: 6px;
+    padding: 0.15em 0.4em;
+}
+.reveal blockquote {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 0.6em 0;
+    font-style: normal;
+    border-left: 3px solid #0071e3;
+    padding-left: 1em;
+    color: #424245;
+}
+.reveal table {
+    font-size: 0.8em;
+    margin: 0.5em auto;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.reveal table th {
+    background: #f5f5f7;
+    font-weight: 600;
+    color: #1d1d1f;
+    border-bottom: 2px solid #d2d2d7;
+    padding: 0.6em 1em;
+}
+.reveal table td {
+    border-bottom: 1px solid #e8e8ed;
+    padding: 0.6em 1em;
+    color: #424245;
+}
+.reveal .fragment {
+    margin-top: 0.8em;
+}
+.reveal section {
+    text-align: center;
+}
+.reveal section.left {
+    text-align: left;
+    padding-left: 1em;
+}
+.reveal .philosophical {
+    font-style: normal;
+    color: #86868b;
+    font-size: 0.9em;
+    border-left: 2px solid #d2d2d7;
+    padding-left: 0.8em;
+    margin: 0.5em 0;
+}
+.reveal .epigraph {
+    font-style: italic;
+    color: #86868b;
+    font-size: 0.55em;
+    margin: 3em 0 0;
+}
+.reveal .pause {
+    margin: 1.5em 0;
+    text-align: center;
+    color: #86868b;
+    font-size: 0.6em;
+}
+.reveal .accent {
+    color: #0071e3;
+}
+.reveal .dim {
+    color: #86868b;
+    font-size: 0.65em;
+}
+.reveal .layer-label {
+    font-size: 0.5em;
+    color: #86868b;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5em;
+}
+.reveal .final-node {
+    color: #1d1d1f;
+}
+.reveal .progress span {
+    background: #0071e3;
+}
+
+/* Dark slides */
+.reveal section[data-background-color="#000000"] h1,
+.reveal section[data-background-color="#000000"] h2,
+.reveal section[data-background-color="#000000"] h3,
+.reveal section[data-background-color="#000000"] p,
+.reveal section[data-background-color="#000000"] li,
+.reveal section[data-background-color="#000000"] div,
+.reveal section[data-background-color="#000000"] span,
+.reveal section[data-background-color="#000000"] code {
+    color: #f5f5f7;
+}
+.reveal section[data-background-color="#000000"] .epigraph,
+.reveal section[data-background-color="#000000"] .dim,
+.reveal section[data-background-color="#000000"] .layer-label {
+    color: #a1a1a6;
+}
+.reveal section[data-background-color="#000000"] pre {
+    background: #1d1d1f;
+    border-color: #424245;
+}
+</style>
+
+<!-- .slide: data-auto-animate data-background-color="#000000" -->
+
+# "Be, Don't Do"
+
+### Ontological Programming
+#### Describing Time and Being
+
+<div style="margin-top: 2.5em; font-size: 0.75em;">
+Akihito Koriyama　／　PHPerKaigi 2026
+</div>
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Paradigm
+
+<div style="font-size: 1.4em; margin: 1em 0;">
+A framework for seeing and thinking about the world
+</div>
+
+Note: Have you ever thought about paradigms? Today is a challenge. Don't interpret through the lens of what you already know. Set aside utility. Discomfort is evidence of cognitive expansion — enjoy it.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## History of Programming Paradigms
+
+<div class="fragment">
+
+```asm
+LDA #$01       ; Load 1 into A register (6502)
+CLC            ; Clear carry flag
+ADC #$02       ; Add 2
+STA $00        ; Store to memory (1+2=3)
+```
+
+<span class="dim">50s Assembly: Thinking in the machine's language</span>
+
+</div>
+
+<div class="fragment" style="margin-top: 1em;">
+
+```php
+for ($i = 0; $i < count($data); $i++) {
+    process($data[$i]);
+}
+```
+
+<span class="dim">60s Procedural: We could think in procedures</span>
+
+</div>
+
+<div class="fragment" style="margin-top: 1em;">
+
+```php
+$user->validate();
+$user->save();
+```
+
+<span class="dim">70s– Object-Oriented: We could think in things</span>
+
+</div>
+
+Note: When I first wrote code on the 6502, I wondered how you could ever make Mario jump with this. Timeline: assembler appeared 1949, widespread in the 50s; procedural — FORTRAN 1957, C 1972, widespread 60s–70s; OOP — Alan Kay coined the term in 1967, Smalltalk-80, widespread in the 90s–2000s with Java/PHP.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Expanding How We See the World
+
+```asm
+LDA #$01       ; Load 1 into A register (6502)
+CLC            ; Clear carry flag
+ADC #$02       ; Add 2
+STA $00        ; Store to memory (1+2=3)
+```
+
+<span class="dim">50s Assembly: Machine cognition</span>
+
+<div style="margin-top: 1em;">
+
+```php
+for ($i = 0; $i < count($data); $i++) {
+    process($data[$i]);
+}
+```
+
+<span class="dim">60s Procedural: Perceiving the world as procedures</span>
+
+</div>
+
+<div style="margin-top: 1em;">
+
+```php
+$user->validate();
+$user->save();
+```
+
+<span class="dim">70s– Object-Oriented: Perceiving the world as things</span>
+
+</div>
+
+Note: Looking back, paradigm shifts were expansions of how we perceive the world. Procedural let us describe things like recipes and workflows. OOP emerged from scaling problems. Today we explore another cognitive expansion — being and time.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 1: The Crack</div>
+
+## The Strangeness of Familiar Code
+
+```php
+$user = new User('Alice');
+$user->delete();
+// $user ?
+echo $user->getName();  // "Alice" ? null ? exception ?
+```
+
+Note: We create Alice with new User('Alice'). $user is Alice. We delete Alice with delete(). What does $user represent now? Should getName() return "Alice"? null? — Neither feels right. A moment ago this seemed fine, but now it looks wrong. That shift is cognition changing. What we thought was object-oriented — $user never really represented a user — it was just a bundle of Doings. This foreshadows the title "Be, Don't Do". Later we'll connect this to DeletedUser.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 1: The Crack</div>
+
+## How Many Methods Does a User Class Have?
+
+```php
+interface User {
+    public function register();
+    public function verifyEmail();
+    public function login();
+    public function logout();
+    public function updateProfile();
+    public function changePassword();
+    public function addAddress();
+    public function removeAddress();
+    public function addPaymentMethod();
+    public function removePaymentMethod();
+    public function addToCart();
+    public function removeFromCart();
+    public function addToWishlist();
+    public function removeFromWishlist();
+    public function checkout();
+    public function trackOrder();
+    public function cancelOrder();
+    public function requestRefund();
+    public function writeReview();
+    public function deleteReview();
+    public function subscribePrime();
+    public function cancelPrime();
+    public function enableTwoFactor();
+    public function disableTwoFactor();
+    public function linkSocialAccount();
+    public function reportAbuse();
+    public function contactSupport();
+    public function exportData();
+    public function suspend();
+    public function reactivate();
+    public function closeAccount();
+    public function delete();
+    // All available, all the time
+}
+```
+
+
+Note: Procedural programming separated data and logic. OOP was supposed to unify them. But in practice, we just collected methods — still procedural at heart. Everything is callable at once — there is no time. Pause here.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 2: WHETHER?</div>
+
+## A Shift in the Question
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+```
+HOW?      How to do it (Procedural)
+WHAT?     What is it (Object-Oriented)
+
+WHETHER?  Can it even exist? (Be)
+```
+
+</div>
+
+Note: Procedural → HOW, OOP → WHAT — these should be familiar. Ontological Programming → WHETHER. Emphasize WHETHER when speaking.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 2: WHETHER?</div>
+
+## Can It Exist?
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+```
+A person with a negative age cannot exist
+You cannot die before you are born
+```
+
+</div>
+
+Note: The difference from defensive programming — defensive programming validates with if-statements after something already exists. WHETHER? prevents things that cannot exist from ever coming into existence, and makes impossible actions unavailable.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## You Wrote `$email`, Yet...
+
+```php
+public function register(string $email) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        throw new Exception("Invalid email");
+    }
+    // ...
+}
+```
+
+Note: "You wrote $email, so why do you call filter_var every time? Shouldn't the name be enough?" — pose this as a question to the audience.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Semantic Variables — Names Become Constraints
+
+```php
+final class Email
+{
+    #[Validate]
+    public function validate(string $email): void
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidEmailException();
+        }
+    }
+}
+
+#[Message([
+    'en' => 'Invalid email address.',
+    'ja' => '有効なメールアドレスを入力してください。'
+])]
+final class InvalidEmailException extends DomainException {}
+```
+
+
+<div class="epigraph">
+Whatever exists, exists necessarily; whatever does not exist, cannot possibly exist — Spinoza (1677)
+</div>
+
+Note: Define it once, and it automatically applies to every constructor parameter named $email. The value in $email is not correct by accident — it is correct by necessity. What cannot be correct simply cannot exist.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Semantic Variables — Decorating Names
+
+```php
+public function __construct(
+    int $age,        // 0–150 years
+    #[Teen] int $age // 13–19 years
+) {}
+```
+
+Note: $age carries the constraint of "age". Decorate it with #[Teen] and it narrows to 13–19. The same $age takes on different meaning depending on context. Name + attribute lets you define existential conditions with finer granularity.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Constraints Dwell in Names
+
+```php
+public function __construct(
+    public string $email,        // Name alone handles validation, messages, i18n
+    public float $bodyTemperature // Name alone excludes lethal vitals
+) {}
+```
+
+<div class="epigraph">
+Kotodama — the spiritual power dwelling in words. Names define reality — Japan
+</div>
+
+Note: WHERE? No — WHETHER?
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Panta Rhei — Everything Flows
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+Egg → Larva → Chrysalis → Butterfly
+
+</div>
+
+<div class="epigraph">
+No man ever steps in the same river twice — Heraclitus (5th century BC)
+</div>
+
+Note: A chrysalis cannot revert to an egg. A specialist doesn't go back to being an intern. A saved user doesn't revert to raw data. Domain and time are inseparable — real existence is always situated in time. OOP has ignored this. We express irreversible transformation in code.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## <span class="accent">`$being`</span> — A Map of Destiny
+
+```php
+public Success|Failure $being;
+```
+
+<div class="fragment" style="margin-top: 1.5em;">
+
+```php
+public Emergency|Observation $being;
+```
+
+</div>
+
+<div class="epigraph">
+Aristotle called this dynamis (potentiality) — 4th century BC
+</div>
+
+Note: An order and its cancellation don't exist separately. The order contains the possibility of cancellation within itself. $being declares everything an object can become. This is not an if-statement — it's not external routing, but existence discovering itself.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## <span class="accent">`$been`</span> — Self-Certification of Existence
+
+```php
+final readonly class EmergencyCase
+{
+    public BeenProcessed $been;
+
+    public function __construct(
+        #[Input] float $bodyTemperature,
+        #[Input] int $heartRate,
+        #[Input] Emergency $being
+    ) {
+        $this->been = new BeenProcessed(
+            actor: 'triage-system',
+            evidence: ['temp' => $bodyTemperature, 'hr' => $heartRate]
+        );
+    }
+}
+```
+
+
+<div class="epigraph">
+You are not I. How do you know that I do not know the joy of fishes? — Zhuangzi (4th century BC)
+</div>
+
+Note: Introduce Zhuangzi's fish parable. If you delete and then can't read, is it gone? — You don't trust delete, yet you trust read? External verification is circular. $been means the object itself contains proof of completion — intrinsic self-certification, not external verification.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Immanence and Transcendence
+
+```php
+#[Be(ValidUser::class)]              // Declare the next state of being
+final readonly class UserInput
+{
+    public function __construct(
+        public string $name,           // immanence
+        public string $email           // immanence
+    ) {}
+}
+```
+
+Note: Immanence = what you carry within yourself. UserInput holds only its own properties.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Immanence and Transcendence
+
+```php
+final readonly class ValidUser
+{
+    public string $displayName;
+
+    public function __construct(
+        #[Input]  string $name,         // Inherited from the prior being
+        #[Input]  string $email,        // Inherited from the prior being
+        #[Inject] Validator $validator  // Power granted from outside
+    ) {
+        $validator->validate($email);
+        $this->displayName = ucfirst($name);
+    }
+}
+```
+
+<div class="epigraph">
+Transcendence within immanence (Transzendenz in der Immanenz) — Husserl, Ideas (1913)
+</div>
+
+Note: Transcendence = power given from outside. Flour alone doesn't become bread. The constructor is a place of encounter. The validator is gone after construction — like a childhood friend who shaped you but is no longer there. You can no longer tell which part of $displayName came from Input and which from Inject. Inner and outer have merged. That is Husserl's "transcendence within immanence".
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Becoming Who You Are Meant to Be
+
+<pre style="text-align: center;">OrderInput → ValidOrder → InStockOrder → PaidOrder → DeliveredOrder</pre>
+
+Each class defines not what it does, but what it is
+
+<div class="epigraph">
+Entelechy — that which has its purpose within itself — Aristotle (4th century BC)
+</div>
+
+Note: We are thrown into the world. But there is directionality — the will to become who we are meant to be. Like an RPG hero encountering the outside world and growing. You won't become a rock star tomorrow. Possibilities are finite and directional. Each class defines not what it does but what it is. Not a bundle of Doing methods, but a chain of Beings.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Destiny Branches
+
+```php
+// Linear path
+#[Be(ValidUser::class)]
+final readonly class UserInput { ... }
+```
+
+```php
+// Branching — $being determines the type
+#[Be([EmergencyCase::class, ObservationCase::class])]
+final readonly class TriageAssessment
+{
+    public Emergency|Observation $being;
+}
+```
+
+Note: It's not always a straight line. The $being property's type declares the possibilities, and the constructor self-determines the outcome. Not an external router or if-statement — existence itself chooses its next form. This is the mechanism of metamorphosis.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Triage
+
+```php
+// Semantic variable validation
+final class BodyTemperature {
+    #[Validate]
+    public function validate(float $bodyTemperature): void {
+        if ($bodyTemperature < 30.0 || $bodyTemperature > 45.0) {
+            throw new LethalVitalException(); // Cannot exist
+        }
+    }
+}
+```
+
+```php
+// Semantic exception
+#[Message([
+    'en' => 'Vital signs indicate non-survivable conditions.',
+    'ja' => 'バイタルサインが生存不可能な状態を示しています。'
+])]
+final class LethalVitalException extends DomainException {}
+```
+
+Note: Triage — the medical system for assessing patient urgency during emergency transport and prioritizing treatment.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## From Entry to Branching
+
+```php
+// Input class
+#[Be([TriageAssessment::class])]
+final readonly class PatientArrivalInput
+{
+    public function __construct(
+        public float $bodyTemperature,
+        public int $heartRate
+    ) {}
+}
+```
+
+```php
+// Being class ($being determines the branch)
+#[Be([EmergencyCase::class, ObservationCase::class])]
+final readonly class TriageAssessment
+{
+    public Emergency|Observation $being;
+
+    public function __construct(
+        #[Input] float $bodyTemperature,  // immanence
+        #[Input] int $heartRate,          // immanence
+        #[Inject] JTASProtocol $protocol  // transcendence
+    ) {
+        $urgency = $protocol->assess($bodyTemperature, $heartRate);
+        $this->being = ($urgency === 'emergency')
+            ? new Emergency()
+            : new Observation();
+    }
+}
+```
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Being Determines Capability
+
+```php
+final readonly class EmergencyCase
+{
+    public string $priority;  // "IMMEDIATE"
+    public string $color;     // "RED"
+
+    public function __construct(
+        #[Input] float $bodyTemperature,
+        #[Input] int $heartRate,
+        #[Input] Emergency $being
+    ) {
+        $this->priority = 'IMMEDIATE';
+        $this->color = 'RED';
+    }
+
+    public function assignER(): string { ... }          // This capability exists only here
+}
+```
+
+```php
+final readonly class ObservationCase
+{
+    public function __construct(
+        #[Input] float $bodyTemperature,
+        #[Input] int $heartRate,
+        #[Input] Observation $being
+    ) {}
+
+    public function assignWaitingArea(): string { ... }  // This capability exists only here
+}
+```
+
+Note: EmergencyCase has no assignWaitingArea(). ObservationCase has no assignER(). Type determines capability. The dead-object-talking problem doesn't exist here. This also resonates with DDD — every class name and method name is a business term. No technical names.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## The Subject Transforms
+
+<pre style="background: none; box-shadow: none; border: none; font-size: 0.75em; line-height: 2.2;">
+<span style="color:#86868b">[Input]</span>  <span style="color:#d63384">PatientArrivalInput</span> (<span style="color:#0071e3">$bodyTemperature</span>, <span style="color:#0071e3">$heartRate</span>)
+            |
+<span style="color:#86868b">[Being]</span>  <span style="color:#d63384">TriageAssessment</span>  <span style="color:#0071e3">$being</span>
+            |
+<span style="color:#86868b">[Final]</span>  <span style="color:#d63384">EmergencyCase</span>     <span style="color:#d63384">ObservationCase</span>
+         <span style="color:#6f42c1">assignER()</span>        <span style="color:#6f42c1">assignWaitingArea()</span>
+         <span style="color:#0071e3">$been</span>             <span style="color:#0071e3">$been</span>
+</pre>
+
+
+<div class="epigraph">
+Language is the house of being — Heidegger (1947)
+</div>
+
+Note: The patient is not processed. The patient transforms. Language is the house of being — class names describe the subject's transformation and construct the world. How you change, each state of being and its temporal irreversibility — that is the foundation of the architecture. Input → Being → Final is Request → Process → Response — the very structure of the web.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## The Same Structure, However Complex
+
+<pre style="background: none; box-shadow: none; border: none; font-size: 0.4em; line-height: 1.1; text-align: left; transform: translateX(-8em);">
+<span style="color:#d63384">OrderInput</span> (<span style="color:#0071e3">$items</span>, <span style="color:#0071e3">$customer</span>, <span style="color:#0071e3">$payment</span>)
+    |
+<span style="color:#d63384">ValidationOrder</span> <span style="color:#0071e3">$being</span>
+    |
+    +--- <span class="final-node">InvalidOrder</span> <span style="color:#0071e3">$been</span>
+    |
+    +--- <span style="color:#d63384">ValidOrder</span> --- <span style="color:#d63384">InventoryOrder</span> <span style="color:#0071e3">$being</span>
+                            |
+                            +--- <span style="color:#d63384">OutOfStockOrder</span> --- <span style="color:#d63384">PendingOrder</span> <span style="color:#0071e3">$being</span>
+                            |                       |
+                            |                       +--- <span class="final-node">BackOrder</span> <span style="color:#0071e3">$been</span>
+                            |                       +--- <span class="final-node">CancelledOrder</span> <span style="color:#0071e3">$been</span>
+                            |
+                            +--- <span style="color:#d63384">InStockOrder</span> --- <span style="color:#d63384">PaymentOrder</span> <span style="color:#0071e3">$being</span>
+                                                    |
+                                                    +--- <span class="final-node">FailedPaymentOrder</span> <span style="color:#0071e3">$been</span>
+                                                    |
+                                                    +--- <span style="color:#d63384">PaidOrder</span> --- <span style="color:#d63384">FraudCheckOrder</span> <span style="color:#0071e3">$being</span>
+                                                                          |
+                                                                          +--- <span class="final-node">SuspiciousOrder</span> <span style="color:#0071e3">$been</span>
+                                                                          |
+                                                                          +--- <span style="color:#d63384">ClearedOrder</span> --- <span style="color:#d63384">ShippingOrder</span> <span style="color:#0071e3">$being</span>
+                                                                                              |
+                                                                                              +--- <span class="final-node">DeliveredOrder</span> <span style="color:#0071e3">$been</span>
+                                                                                              +--- <span class="final-node">ReturnedOrder</span> <span style="color:#0071e3">$been</span>
+</pre>
+
+<div class="epigraph">
+The Tao does nothing, yet nothing is left undone — Laozi (6th century BC)
+</div>
+
+Note: No matter where you look, the same structure appears. Immanence meets transcendence and becomes new immanence — just repeating Husserl's pattern. This diagram can be generated from code. Architecture is documentation — the DDD ideal. No one is in control. Each part is autonomous, forming a complex system. No one controls a food chain, yet it has functioned stably for hundreds of millions of years. Laozi's wu wei.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## The Genesis of Being
+
+```php
+$becoming = new Becoming($injector);
+$final = $becoming(new OrderInput(
+    items: $items,
+    customer: $customer,
+    payment: $payment
+));
+```
+
+<div class="epigraph">
+Being passes over into nothing, and nothing passes over into being. This movement is becoming — Hegel (1812)
+</div>
+
+Note: OrderInput enters, vanishes within Becoming, and a new being emerges as $final. This is becoming. Regardless of complexity, the invocation never changes.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## From DX to AX
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+```
+DX: Code that is easy for humans to write
+AX: Structure that both humans and AI can understand
+
+Humans: Define WHETHER — what should exist
+AI:     Solve HOW — how to realize it
+```
+
+</div>
+
+Note: Remember the diagram? AI can understand it too. The Input → Being → Final structure is also a set of constraints that AI can verify and comprehend. BOP is a way of perceiving the world for humans and AI alike. Being sits at that intersection.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div style="font-size: 1.2em; line-height: 3.5;">
+
+Tell, Don't Ask — Object Oriented<br>
+<span class="accent">**Be, Don't Do — Being Oriented**</span>
+
+</div>
+
+Note: Tell, Don't Ask means don't query objects, command them (Pragmatic Programmers). Be, Don't Do goes further — don't command, define existence. BOP = Being Oriented Programming.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Being over Doing
+
+|  | Doing | Being |
+|---|---|---|
+| Focus | Verbs (how to act) | Nouns (what it is) |
+| Change | Others change it | Self transforms |
+| Time | Sequential steps | State metamorphosis |
+| Correctness | Verified by tests | Existence itself is proof |
+| Developer | Someone who implements | Someone who defines conditions of existence |
+
+Note: cat log | grep | sort — pipes process data from the outside (others change it). Be means the object transforms itself (self-change). The subject is different.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Different Languages, the Same Question
+
+<div style="font-size: 0.75em;">
+
+| Thinker | Concept | Being |
+|---|---|---|
+| Heraclitus | Panta rhei (everything flows) | Input → Being → Final |
+| Aristotle | Dynamis (potentiality) | Success\|Failure $being |
+| Laozi | Wu wei (non-action) | #[Be] declaration |
+| Spinoza | Necessary existence | Semantic Variables |
+| Husserl | Transcendence within immanence | #[Input] + #[Inject] |
+| Zhuangzi | Self-certification | $been |
+| Heidegger | Language is the house of being | Class name = world building |
+| Buddhism | Momentariness (ksana-bhanga) | Irreversible transformation |
+
+</div>
+
+Note: People across different eras, cultures, and languages arrived at the same place. The philosophers are not authorities but witnesses. The patterns emerged first; the philosophical parallels became apparent later.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div style="font-size: 1.1em; line-height: 1.8;">
+
+"The world is a system of ever-changing<br>relationships and structures."
+
+</div>
+
+<div class="epigraph">
+Ted Nelson — from the experience of putting his hand in the water from a boat on a lake, at age five
+</div>
+
+Note: Young Nelson put his hand in the water and was captivated by the relationship between his hand's movement and the water's flow. He hyper-generalized it into "the world is a system of ever-changing relationships and structures." The inventor of hypertext arrived at the same place as the philosophers.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div style="font-size: 1.2em;">
+
+<pre style="max-width: 80%;"><code class="language-php">#[Be(NewParadigm::class)]
+final class You
+{
+    public readonly Vision $vision;
+
+    public function __construct(
+        #[Input]  Understanding $before,  // immanence
+        #[Inject] Insight       $today,   // transcendence (gone after this)
+    ) {
+        $this->vision = new Vision($before, $today);
+    }
+}
+</code></pre>
+
+</div>
+
+Note: $today is this very presentation. It's gone after construction — but its influence lives on within $vision. Transcendence within immanence. The childhood friend is gone, but the experience remains.
+
+---
+
+<!-- .slide: data-auto-animate data-background-color="#000000" -->
+
+<div style="font-size: 1.5em;">
+
+<span style="color:#0071e3">$being</span>
+
+</div>
+
+Note: How did this feel to you? It may have seemed strange. But perhaps some of it resonated. — When you encounter a new way of thinking, you can take one of two stances. OOP seemed strange in the era of procedural programming alone. But now it's taken for granted. Will you try it with curiosity, or wait until everyone else succeeds first? Neither is wrong. But that choice shapes who you become tomorrow. Beyond what you want to do (Doing) as a developer — who do you want to be (Being)? What is your $being?
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"_site-en"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) {
+        mermaid.init(mermaidOptions, '.stack.present > .present pre code.mermaid');
+        mermaid.init(mermaidOptions, '.slides > .present:not(.stack) pre code.mermaid');
+      }
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>

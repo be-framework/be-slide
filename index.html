@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="\r?\n---\r?\n" data-separator-vertical="\r?\n----\r?\n">
+          <textarea data-template>
+            
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.reveal {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 36px;
+    color: #1d1d1f;
+    background: #fbfbfd;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+.reveal h1 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.03em;
+    text-transform: none;
+    color: #1d1d1f;
+}
+.reveal h2 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.4em;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+}
+.reveal h3 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.3em;
+    letter-spacing: -0.01em;
+    color: #1d1d1f;
+}
+.reveal p, .reveal li {
+    font-size: 0.75em;
+    line-height: 1.6;
+    margin-bottom: 0.4em;
+    color: #1d1d1f;
+}
+.reveal pre {
+    font-size: 0.55em;
+    line-height: 1.3;
+    margin: 0.3em auto;
+    max-width: 70%;
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 0.6em 0.8em;
+    border: 1px solid #e8e8ed;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.reveal pre code {
+    background: transparent;
+    padding: 0;
+}
+.reveal code {
+    font-size: 0.8em;
+    font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+    background: #f5f5f7;
+    border-radius: 6px;
+    padding: 0.15em 0.4em;
+}
+.reveal blockquote {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 0.6em 0;
+    font-style: normal;
+    border-left: 3px solid #0071e3;
+    padding-left: 1em;
+    color: #424245;
+}
+.reveal table {
+    font-size: 0.8em;
+    margin: 0.5em auto;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.reveal table th {
+    background: #f5f5f7;
+    font-weight: 600;
+    color: #1d1d1f;
+    border-bottom: 2px solid #d2d2d7;
+    padding: 0.6em 1em;
+}
+.reveal table td {
+    border-bottom: 1px solid #e8e8ed;
+    padding: 0.6em 1em;
+    color: #424245;
+}
+.reveal .fragment {
+    margin-top: 0.8em;
+}
+.reveal section {
+    text-align: center;
+}
+.reveal section.left {
+    text-align: left;
+    padding-left: 1em;
+}
+.reveal .philosophical {
+    font-style: normal;
+    color: #86868b;
+    font-size: 0.9em;
+    border-left: 2px solid #d2d2d7;
+    padding-left: 0.8em;
+    margin: 0.5em 0;
+}
+.reveal .epigraph {
+    font-style: italic;
+    color: #86868b;
+    font-size: 0.55em;
+    margin: 3em 0 0;
+}
+.reveal .pause {
+    margin: 1.5em 0;
+    text-align: center;
+    color: #86868b;
+    font-size: 0.6em;
+}
+.reveal .accent {
+    color: #0071e3;
+}
+.reveal .dim {
+    color: #86868b;
+    font-size: 0.65em;
+}
+.reveal .layer-label {
+    font-size: 0.5em;
+    color: #86868b;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5em;
+}
+.reveal .final-node {
+    color: #1d1d1f;
+}
+.reveal .progress span {
+    background: #0071e3;
+}
+
+/* Dark slides */
+.reveal section[data-background-color="#000000"] h1,
+.reveal section[data-background-color="#000000"] h2,
+.reveal section[data-background-color="#000000"] h3,
+.reveal section[data-background-color="#000000"] p,
+.reveal section[data-background-color="#000000"] li,
+.reveal section[data-background-color="#000000"] div,
+.reveal section[data-background-color="#000000"] span,
+.reveal section[data-background-color="#000000"] code {
+    color: #f5f5f7;
+}
+.reveal section[data-background-color="#000000"] .epigraph,
+.reveal section[data-background-color="#000000"] .dim,
+.reveal section[data-background-color="#000000"] .layer-label {
+    color: #a1a1a6;
+}
+.reveal section[data-background-color="#000000"] pre {
+    background: #1d1d1f;
+    border-color: #424245;
+}
+</style>
+
+<!-- .slide: data-auto-animate data-background-color="#000000" -->
+
+# "Be, Don't Do"
+
+## 存在論的プログラミング
+### 時間と存在を記述する
+
+<div style="margin-top: 2.5em; font-size: 0.75em;">
+Akihito Koriyama　／　PHPerKaigi 2026
+</div>
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## パラダイム
+
+<div style="font-size: 1.4em; margin: 1em 0;">
+物の見方・考え方の枠組み
+</div>
+
+Note: パラダイムの話を聞いたことありますか？今日は挑戦です。従来の延長で解釈しない。損得は脇に置く。違和感こそが認知拡張の証拠、楽しんで
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## プログラミングパラダイム史
+
+<div class="fragment">
+
+```asm
+LDA #$01       ; Aレジスタに1をロード（6502）
+CLC            ; キャリーフラグをクリア
+ADC #$02       ; 2を加算
+STA $00        ; メモリに保存（1+2=3）
+```
+
+<span class="dim">50s アセンブラ：マシンの言葉で考える</span>
+
+</div>
+
+<div class="fragment" style="margin-top: 1em;">
+
+```php
+for ($i = 0; $i < count($data); $i++) {
+    process($data[$i]);
+}
+```
+
+<span class="dim">60s 手続き型：手順で考えられるようになった</span>
+
+</div>
+
+<div class="fragment" style="margin-top: 1em;">
+
+```php
+$user->validate();
+$user->save();
+```
+
+<span class="dim">70s- オブジェクト指向：モノとして考えられるようになった</span>
+
+</div>
+
+Note: 6502で初めてコードを書いた時、これでどうやったらマリオのジャンプが書けるのかと思った。年代：アセンブラ1949年登場→50s普及、手続き型FORTRAN1957/C1972→60s-70s普及、OOP アランケイが1967年命名/Smalltalk-80→90s-00sにJava/PHPで普及
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## 世界認知の拡張
+
+```asm
+LDA #$01       ; Aレジスタに1をロード（6502）
+CLC            ; キャリーフラグをクリア
+ADC #$02       ; 2を加算
+STA $00        ; メモリに保存（1+2=3）
+```
+
+<span class="dim">50s アセンブラ：マシンの認知</span>
+
+<div style="margin-top: 1em;">
+
+```php
+for ($i = 0; $i < count($data); $i++) {
+    process($data[$i]);
+}
+```
+
+<span class="dim">60s 手続き型：世界を手順で認知</span>
+
+</div>
+
+<div style="margin-top: 1em;">
+
+```php
+$user->validate();
+$user->save();
+```
+
+<span class="dim">70s- オブジェクト指向：世界をモノとして認知</span>
+
+</div>
+
+Note: 振り返ると、パラダイムの変化は世界の認知方法の拡張だった。手続き型はレシピや作業手順のように記述できた。スケールの問題からOOPが生まれた。今日はもうひとつの認知拡張——存在と時間——を扱ってみます
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第1層：亀裂</div>
+
+## 見慣れたコードの、奇妙さ
+
+```php
+$user = new User('Alice');
+$user->delete();
+// $user ?
+echo $user->getName();  // "Alice" ? null ? exception ?
+```
+
+Note: new User('Alice')でアリスユーザーを作った。$userはアリス。delete()でアリスを消した。$userは今何を表す？ getName()はAliceを返すべき？nullを返すべき？——どちらも納得いかない。さっきまでおかしいと思わなかったのに急におかしく見える。それが認知が変わったということ。オブジェクト指向のつもりが$userはuserを表していなかった——Doingの束。タイトル"Be, Don't Do"の伏線。後でDeletedUserとして繋げる
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第1層：亀裂</div>
+
+## User クラスのメソッド数
+
+```php
+interface User {
+    public function register();
+    public function verifyEmail();
+    public function login();
+    public function logout();
+    public function updateProfile();
+    public function changePassword();
+    public function addAddress();
+    public function removeAddress();
+    public function addPaymentMethod();
+    public function removePaymentMethod();
+    public function addToCart();
+    public function removeFromCart();
+    public function addToWishlist();
+    public function removeFromWishlist();
+    public function checkout();
+    public function trackOrder();
+    public function cancelOrder();
+    public function requestRefund();
+    public function writeReview();
+    public function deleteReview();
+    public function subscribePrime();
+    public function cancelPrime();
+    public function enableTwoFactor();
+    public function disableTwoFactor();
+    public function linkSocialAccount();
+    public function reportAbuse();
+    public function contactSupport();
+    public function exportData();
+    public function suspend();
+    public function reactivate();
+    public function closeAccount();
+    public function delete();
+    // すべてが、常に利用できる
+}
+```
+
+
+Note: 手続き型はデータとロジックが分離していた。OOPはそれを一体にしたはずだった。でも実際はメソッドを集めただけで本質的には手続きのまま。全部が常に同時に呼べる——時間がない。ここで間を取る
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第2層：WHETHER?</div>
+
+## 問いの転換
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+```
+HOW?      どうやるか（手続き型）
+WHAT?     それは何か（オブジェクト指向）
+
+WHETHER?  そもそも存在できるか(Be)
+```
+
+</div>
+
+Note: 手続き型→HOW、OOP→WHAT、ここまでは馴染みがあるはず。存在論的プログラミング→WHETHER。口頭でWHETHERを際立たせる
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第2層：WHETHER?</div>
+
+## それは存在可能か
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+```
+年齢がマイナスの人はいない
+生まれる前に死ぬことはできない
+```
+
+</div>
+
+Note: 防御プログラミングとの違い——防御は存在した後にif文で検査する。WHETHER?は存在できないものは存在させない、できないことは利用不可能
+
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## `$email` と書いたのに
+
+```php
+public function register(string $email) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        throw new Exception("Invalid email");
+    }
+    // ...
+}
+```
+
+Note: 「$emailと書いたのに、なぜ毎回filter_varするのか？名前で十分なのでは？」——口頭で問いかける
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 意味変数——名前が制約になる
+
+```php
+final class Email
+{
+    #[Validate]
+    public function validate(string $email): void
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidEmailException();
+        }
+    }
+}
+
+#[Message([
+    'en' => 'Invalid email address.',
+    'ja' => '有効なメールアドレスを入力してください。'
+])]
+final class InvalidEmailException extends DomainException {}
+```
+
+
+<div class="epigraph">
+存在するものは必然的に存在し、存在しないものは必然的に存在しない——スピノザ（1677）
+</div>
+
+Note: 一度定義すれば$emailという名前の全コンストラクタで自動適用。$emailに入っている値はたまたま正しいのではなく必然的に正しい。正しくないものはそもそも存在できない
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 意味変数——名前を装飾する
+
+```php
+public function __construct(
+    int $age,        // 0-150歳
+    #[Teen] int $age // 13-19歳
+) {}
+```
+
+Note: $ageは「年齢」の制約を持つ。#[Teen]で装飾すると13-19歳に絞られる。同じ$ageでも文脈で意味が変わる。名前＋属性で存在の条件をさらに細かく定義できる
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 名前に制約が宿る
+
+```php
+public function __construct(
+    public string $email,        // 名前だけで検証・メッセージ・多言語
+    public float $bodyTemperature // 名前だけで致死的バイタルを排除
+) {}
+```
+
+<div class="epigraph">
+言霊——言葉に宿る霊力。名前が現実を規定する——日本
+</div>
+
+Note: WHERE?ではなくWHETHER?
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 万物流転
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+卵 → 幼虫 → さなぎ → 蝶
+
+</div>
+
+<div class="epigraph">
+同じ川に二度入ることはできない——ヘラクレイトス（紀元前5世紀）
+</div>
+
+Note: さなぎは卵に戻れない。専門医は研修医に戻らない。saved userはraw dataに戻らない。ドメインと時間は分離できない——現実の存在は常に時間の中にある。OOPはこれを無視してきた。不可逆な変容をコードで表現する
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## <span class="accent">`$being`</span>——運命の地図
+
+```php
+public Success|Failure $being;
+```
+
+<div class="fragment" style="margin-top: 1.5em;">
+
+```php
+public Emergency|Observation $being;
+```
+
+</div>
+
+<div class="epigraph">
+アリストテレスはこれをデュナミス（可能態）と呼んだ——紀元前4世紀
+</div>
+
+Note: 注文とキャンセルは別々に存在しない。注文はキャンセルという可能性を含んでいる。$beingはオブジェクトが自分がなりうるもの全てを宣言する。if文ではない——外部が振り分けるのではなく、存在が自ら発見する
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## <span class="accent">`$been`</span>——存在の自己証明
+
+```php
+final readonly class EmergencyCase
+{
+    public BeenProcessed $been;
+
+    public function __construct(
+        #[Input] float $bodyTemperature,
+        #[Input] int $heartRate,
+        #[Input] Emergency $being
+    ) {
+        $this->been = new BeenProcessed(
+            actor: 'triage-system',
+            evidence: ['temp' => $bodyTemperature, 'hr' => $heartRate]
+        );
+    }
+}
+```
+
+
+<div class="epigraph">
+あなたは私ではない。どうして私が魚の気持ちを知らないと分かるのか？——荘子（紀元前4世紀）
+</div>
+
+Note: 荘子の魚のエピソードを紹介する。deleteしてreadできなければ消えた？——deleteを信用できないのにreadは信用できるのか。外部の検証は循環する。$beenはオブジェクト自身が完了の証拠を内包する——外部ではなく内在的な自己証明
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 内在と超越
+
+```php
+#[Be(ValidUser::class)]              // 次の存在を宣言
+final readonly class UserInput
+{
+    public function __construct(
+        public string $name,           // 内在
+        public string $email           // 内在
+    ) {}
+}
+```
+
+Note: 内在=自分が持つもの。UserInputは自分自身のプロパティだけを持つ。
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 内在と超越
+
+```php
+final readonly class ValidUser
+{
+    public string $displayName;
+
+    public function __construct(
+        #[Input]  string $name,         // 前の存在から受け継ぐ
+        #[Input]  string $email,        // 前の存在から受け継ぐ
+        #[Inject] Validator $validator  // 外から与えられる力
+    ) {
+        $validator->validate($email);
+        $this->displayName = ucfirst($name);
+    }
+}
+```
+
+<div class="epigraph">
+内在における超越（Transzendenz in der Immanenz）——フッサール『イデーン』（1913）
+</div>
+
+Note: 超越=外から与えられる力。小麦粉だけではパンにならない。コンストラクタは出会いの場所。validatorは構築後にはもういない——幼少期の友人のように、私を形作ったがもうそこにはいない。$displayNameのどこがInputでどこがInjectかはもう区別できない。内と外は溶け合っている。それがフッサールの「内在における超越」
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## なりたい自分になる
+
+<pre style="text-align: center;">OrderInput → ValidOrder → InStockOrder → PaidOrder → DeliveredOrder</pre>
+
+各クラスは「何をするか」ではなく「何であるか」を定義する
+
+<div class="epigraph">
+エンテレケイア——内に目的を持つもの——アリストテレス（紀元前4世紀）
+</div>
+
+Note: 私たちはこの世に放り出される。でも方向性がある——なりたい自分になるという意志。RPGの勇者のように外の世界と出会い成長していく。明日ロックスターにはならない。可能性は有限で方向性がある。各クラスは何をするかではなく何であるかを定義している。Doingのメソッドの束ではなくBeingの連鎖
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 運命は分岐する
+
+```php
+// 一本道
+#[Be(ValidUser::class)]
+final readonly class UserInput { ... }
+```
+
+```php
+// 分岐——$being が型で決定する
+#[Be([EmergencyCase::class, ObservationCase::class])]
+final readonly class TriageAssessment
+{
+    public Emergency|Observation $being;
+}
+```
+
+Note: 一本道だけではない。$beingプロパティの型が可能性を宣言し、コンストラクタの中で自己決定する。外部のルーターやif文ではなく、存在自身が次の姿を選ぶ。これがメタモルフォーシスのメカニズム
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## トリアージ
+
+```php
+// 意味変数検証
+final class BodyTemperature {
+    #[Validate]
+    public function validate(float $bodyTemperature): void {
+        if ($bodyTemperature < 30.0 || $bodyTemperature > 45.0) {
+            throw new LethalVitalException(); // 存在できない
+        }
+    }
+}
+```
+
+```php
+// 意味例外
+#[Message([
+    'en' => 'Vital signs indicate non-survivable conditions.',
+    'ja' => 'バイタルサインが生存不可能な状態を示しています。'
+])]
+final class LethalVitalException extends DomainException {}
+```
+
+Note: トリアージ——救急搬送時に患者の緊急度を判定し、治療の優先順位を決める医療の仕組み
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## 入口から分岐まで
+
+```php
+// 入力クラス
+#[Be([TriageAssessment::class])]
+final readonly class PatientArrivalInput
+{
+    public function __construct(
+        public float $bodyTemperature,
+        public int $heartRate
+    ) {}
+}
+```
+
+```php
+// 存在クラス（$being で分岐）
+#[Be([EmergencyCase::class, ObservationCase::class])]
+final readonly class TriageAssessment
+{
+    public Emergency|Observation $being;
+
+    public function __construct(
+        #[Input] float $bodyTemperature,  // 内在
+        #[Input] int $heartRate,          // 内在
+        #[Inject] JTASProtocol $protocol  // 超越
+    ) {
+        $urgency = $protocol->assess($bodyTemperature, $heartRate);
+        $this->being = ($urgency === 'emergency')
+            ? new Emergency()
+            : new Observation();
+    }
+}
+```
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## 存在が能力を決める
+
+```php
+final readonly class EmergencyCase
+{
+    public string $priority;  // "IMMEDIATE"
+    public string $color;     // "RED"
+
+    public function __construct(
+        #[Input] float $bodyTemperature,
+        #[Input] int $heartRate,
+        #[Input] Emergency $being
+    ) {
+        $this->priority = 'IMMEDIATE';
+        $this->color = 'RED';
+    }
+
+    public function assignER(): string { ... }          // この能力はここだけ
+}
+```
+
+```php
+final readonly class ObservationCase
+{
+    public function __construct(
+        #[Input] float $bodyTemperature,
+        #[Input] int $heartRate,
+        #[Input] Observation $being
+    ) {}
+
+    public function assignWaitingArea(): string { ... }  // この能力はここだけ
+}
+```
+
+Note: EmergencyCaseにassignWaitingArea()はない。ObservationCaseにassignER()はない。型が能力を決定する。死者が話す問題はここにはない。DDDとも共鳴——クラス名もメソッド名も全てビジネスの言葉。技術的な名前がない
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## 主体が変わっていく
+
+<pre style="background: none; box-shadow: none; border: none; font-size: 0.75em; line-height: 2.2;">
+<span style="color:#86868b">[Input]</span>  <span style="color:#d63384">PatientArrivalInput</span> (<span style="color:#0071e3">$bodyTemperature</span>, <span style="color:#0071e3">$heartRate</span>)
+            |
+<span style="color:#86868b">[Being]</span>  <span style="color:#d63384">TriageAssessment</span>  <span style="color:#0071e3">$being</span>
+            |
+<span style="color:#86868b">[Final]</span>  <span style="color:#d63384">EmergencyCase</span>     <span style="color:#d63384">ObservationCase</span>
+         <span style="color:#6f42c1">assignER()</span>        <span style="color:#6f42c1">assignWaitingArea()</span>
+         <span style="color:#0071e3">$been</span>             <span style="color:#0071e3">$been</span>
+</pre>
+
+
+<div class="epigraph">
+言葉は存在の家である——ハイデガー（1947）
+</div>
+
+Note: 患者は処理されない。患者が変わっていく。言葉は存在の家——クラス名が主体の変遷を記述し、世界を構築している。自分がどう変わっていくか、それぞれの存在と時間的な不可逆性がアーキテクチャのベースになっている。Input→Being→FinalはRequest→Process→Response、Webの仕組みそのもの
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## 複雑な世界も同じ構造
+
+<pre style="background: none; box-shadow: none; border: none; font-size: 0.5em; line-height: 1.1; text-align: left; transform: translateX(-8em);">
+<span style="color:#d63384">OrderInput</span> (<span style="color:#0071e3">$items</span>, <span style="color:#0071e3">$customer</span>, <span style="color:#0071e3">$payment</span>)
+    |
+<span style="color:#d63384">ValidationOrder</span> <span style="color:#0071e3">$being</span>
+    |
+    +--- <span class="final-node">InvalidOrder</span> <span style="color:#0071e3">$been</span>
+    |
+    +--- <span style="color:#d63384">ValidOrder</span> --- <span style="color:#d63384">InventoryOrder</span> <span style="color:#0071e3">$being</span>
+                            |
+                            +--- <span style="color:#d63384">OutOfStockOrder</span> --- <span style="color:#d63384">PendingOrder</span> <span style="color:#0071e3">$being</span>
+                            |                       |
+                            |                       +--- <span class="final-node">BackOrder</span> <span style="color:#0071e3">$been</span>
+                            |                       +--- <span class="final-node">CancelledOrder</span> <span style="color:#0071e3">$been</span>
+                            |
+                            +--- <span style="color:#d63384">InStockOrder</span> --- <span style="color:#d63384">PaymentOrder</span> <span style="color:#0071e3">$being</span>
+                                                    |
+                                                    +--- <span class="final-node">FailedPaymentOrder</span> <span style="color:#0071e3">$been</span>
+                                                    |
+                                                    +--- <span style="color:#d63384">PaidOrder</span> --- <span style="color:#d63384">FraudCheckOrder</span> <span style="color:#0071e3">$being</span>
+                                                                          |
+                                                                          +--- <span class="final-node">SuspiciousOrder</span> <span style="color:#0071e3">$been</span>
+                                                                          |
+                                                                          +--- <span style="color:#d63384">ClearedOrder</span> --- <span style="color:#d63384">ShippingOrder</span> <span style="color:#0071e3">$being</span>
+                                                                                              |
+                                                                                              +--- <span class="final-node">DeliveredOrder</span> <span style="color:#0071e3">$been</span>
+                                                                                              +--- <span class="final-node">ReturnedOrder</span> <span style="color:#0071e3">$been</span>
+</pre>
+
+<div class="epigraph">
+道は常に無為にして、而も為さざることなし——老子（紀元前6世紀）
+</div>
+
+Note: どこを切り取っても同じ構造。内在が超越と出会って新しい内在になる——フッサールのパターンを繰り返しているだけ。この図はコードから生成できる。アーキテクチャがそのままドキュメンテーション、DDDの理想。誰もコントロールしていない。それぞれが自律し複雑な系を作っている。食物連鎖をコントロールする人はいない、しかし数億年安定して機能している。老子の無為
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## 存在の生成
+
+```php
+$becoming = new Becoming($injector);
+$final = $becoming(new OrderInput(
+    items: $items,
+    customer: $customer,
+    payment: $payment
+));
+```
+
+<div class="epigraph">
+存在は無へと移行し、無は存在へと移行する。この運動が生成である——ヘーゲル（1812）
+</div>
+
+Note: OrderInputが入り、Becomingの中で一度消え、$finalとして新しい存在が現れる。これが生成。複雑さに関わらず呼び出しは変わらない
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## DX から AX へ
+
+<div style="margin-top: 1.5em; font-size: 1.2em;">
+
+```
+DX：人間にとって書きやすいコード
+AX：人間とAIの双方が理解できる構造
+
+人間：何が存在すべきか WHETHER を定義する
+AI ：どう実現するか HOW を解く
+```
+
+</div>
+
+Note: さっきの図、AIも理解できますよね。Input→Being→Finalという構造はAIが検証・理解できる制約でもある。BOPは人間の世界認知であると同時にAIにとっての世界認知でもある。その交差点にBeingがある
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div style="font-size: 1.2em; line-height: 3.5;">
+
+Tell, Don't Ask — Object Oriented<br>
+<span class="accent">**Be, Don't Do — Being Oriented**</span>
+
+</div>
+
+Note: Tell, Don't Askはオブジェクトに聞くな命じろ（Pragmatic Programmers）。Be, Don't Doはその先——命じるのではなく、存在を定義する。BOP = Being Oriented Programming
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Being over Doing
+
+|  | Doing | Being |
+|---|---|---|
+| 中心 | 動詞（どう動かすか） | 名詞（何であるか） |
+| 変化 | 他者が変化させる | 自己が変容する |
+| 時間 | 手順の連続 | 状態の変容 |
+| 正しさ | テストによる検証 | 存在していること自体が証明 |
+| 開発者 | 実装する人 | 存在の条件を定義する人 |
+
+Note: cat log | grep | sort——パイプは外からデータを加工していく（他者が変化させる）。Beはオブジェクト自身が変容する（自己変化）。主語が違う
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## 異なる言語、同じ問い
+
+<div style="font-size: 0.75em;">
+
+| 思想 | 概念 | Being |
+|---|---|---|
+| ヘラクレイトス | 万物流転 | Input → Being → Final |
+| アリストテレス | 可能態 | Success\|Failure $being |
+| 老子 | 無為 | #[Be] 宣言 |
+| スピノザ | 必然的存在 | 意味変数 |
+| フッサール | 内在における超越 | #[Input] + #[Inject] |
+| 荘子 | 自己証明 | $been |
+| ハイデガー | 言葉は存在の家 | クラス名＝世界構築 |
+| 仏教 | 刹那滅 | 不可逆な変容 |
+
+</div>
+
+Note: 時代も文化も言語も違う人々が同じ場所に辿り着いた。哲学者たちは権威ではなく証人。パターンが先に生まれ、哲学的な類似性は後から明らかになった
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div style="font-size: 1.1em; line-height: 1.8;">
+
+"The world is a system of ever-changing<br>relationships and structures."
+
+</div>
+
+<div class="epigraph">
+テッド・ネルソン——5歳の時、湖でボートから手を水に入れた体験から
+</div>
+
+Note: ネルソン少年は水に手を入れて、手の動きと水流の関係に心を奪われた。それを超一般化して「世界は絶えず変化する関係と構造のシステム」と結論づけた。ハイパーテキストの発明者が、哲学者たちと同じ場所に辿り着いている
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div style="font-size: 1.2em;">
+
+<pre style="max-width: 80%;"><code class="language-php">#[Be(NewParadigm::class)]
+final class You
+{
+    public readonly Vision $vision;
+
+    public function __construct(
+        #[Input]  Understanding $before,  // 内在
+        #[Inject] Insight       $today,   // 超越（この後いなくなる）
+    ) {
+        $this->vision = new Vision($before, $today);
+    }
+}
+</code></pre>
+
+</div>
+
+Note: $todayはプレゼンそのもの。構築後にはもういない——でもその影響は$visionの中に生きている。内在における超越。遊び友達はいなくなったけど経験は残った
+
+---
+
+<!-- .slide: data-auto-animate data-background-color="#000000" -->
+
+<div style="font-size: 1.5em;">
+
+<span style="color:#0071e3">$being</span>
+
+</div>
+
+Note: ここまで聞いてどう感じましたか？ 奇妙に思えたかもしれない。でもいくつかは膝を打つこともあったかもしれない。——新しい考え方に出会ったとき、人は2つの態度を取れる。手続き型だけの時代にOOPは奇妙に映った。でも今は当たり前になっている。好奇心を持ってトライするか、皆がうまくいったら乗るか。どちらが正しいということではない。でもその選択が明日のあなたを形作る。開発者として何をしたい（Doing）かを超えて、どうなりたいか（Being）。あなたの$beingは何ですか？
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"_":["slides.md"],"static":"_site"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) {
+        mermaid.init(mermaidOptions, '.stack.present > .present pre code.mermaid');
+        mermaid.init(mermaidOptions, '.slides > .present:not(.stack) pre code.mermaid');
+      }
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
