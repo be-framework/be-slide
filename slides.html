@@ -223,7 +223,7 @@ Akihito Koriyama　／　PHPerKaigi 2026
 物の見方・考え方の枠組み
 </div>
 
-Note: パラダイムの話を聞いたことありますか？今日は挑戦です。従来の延長で解釈しない。損得は脇に置く。違和感こそが認知拡張の証拠、楽しんで
+Note: ⏱ 0:30 冒頭｜パラダイムの話を聞いたことありますか？今日は挑戦です。従来の延長で解釈しない。損得は脇に置く。違和感こそが認知拡張の証拠。楽しんで
 
 ---
 
@@ -324,7 +324,7 @@ $user->delete();
 echo $user->getName();  // "Alice" ? null ? exception ?
 ```
 
-Note: new User('Alice')でアリスユーザーを作った。$userはアリス。delete()でアリスを消した。$userは今何を表す？ getName()はAliceを返すべき？nullを返すべき？——どちらも納得いかない。さっきまでおかしいと思わなかったのに急におかしく見える。それが認知が変わったということ。オブジェクト指向のつもりが$userはuserを表していなかった——Doingの束。タイトル"Be, Don't Do"の伏線。後でDeletedUserとして繋げる
+Note: ⏱ 5:00 第1層：亀裂｜new User('Alice')でアリスユーザーを作った。$userはアリス。delete()でアリスを消した。$userは今何を表す？ getName()はAliceを返すべき？nullを返すべき？——どちらも納得いかない。さっきまでおかしいと思わなかったのに急におかしく見える。それが認知が変わったということ。オブジェクト指向のつもりが$userはuserを表していなかった——Doingの束。タイトル"Be, Don't Do"の伏線。
 
 ---
 
@@ -332,11 +332,11 @@ Note: new User('Alice')でアリスユーザーを作った。$userはアリス�
 
 <div class="layer-label">第1層：亀裂</div>
 
-## User クラスのメソッド数
+## User クラスのメソッド
 
 ```php
 interface User {
-    public function register();
+    public function register(); 　　   // すべてが、常に利用できる
     public function verifyEmail();
     public function login();
     public function logout();
@@ -344,7 +344,7 @@ interface User {
     public function changePassword();
     public function addAddress();
     public function removeAddress();
-    public function addPaymentMethod();
+    public function addPaymentMethod();     
     public function removePaymentMethod();
     public function addToCart();
     public function removeFromCart();
@@ -368,12 +368,11 @@ interface User {
     public function reactivate();
     public function closeAccount();
     public function delete();
-    // すべてが、常に利用できる
 }
 ```
 
 
-Note: 手続き型はデータとロジックが分離していた。OOPはそれを一体にしたはずだった。でも実際はメソッドを集めただけで本質的には手続きのまま。全部が常に同時に呼べる——時間がない。ここで間を取る
+Note: 手続き型はデータとロジックが分離していた。OOPはそれを一体にしたはずだった。でも実際はメソッドを集めただけで本質的には手続きのまま。登録前のユーザーがログアウトできてしまう——順序がない。ここで間を取る
 
 ---
 
@@ -394,7 +393,7 @@ WHETHER?  そもそも存在できるか(Be)
 
 </div>
 
-Note: 手続き型→HOW、OOP→WHAT、ここまでは馴染みがあるはず。存在論的プログラミング→WHETHER。口頭でWHETHERを際立たせる
+Note: ⏱ 9:00 第2層：WHETHER?｜手続き型→HOW、OOP→WHAT、ここまでは馴染みがあるはず。存在論的プログラミング→WHETHER。口頭でWHETHERを際立たせる
 
 ---
 
@@ -413,7 +412,7 @@ Note: 手続き型→HOW、OOP→WHAT、ここまでは馴染みがあるはず�
 
 </div>
 
-Note: 防御プログラミングとの違い——防御は存在した後にif文で検査する。WHETHER?は存在できないものは存在させない、できないことは利用不可能
+Note: 「年齢がマイナス」は防御プログラミングやVOでもできる。だが「生まれる前に死ぬことはできない」は？——WHETHER?はこれらを一級市民にする。
 
 
 ---
@@ -433,7 +432,7 @@ public function register(string $email) {
 }
 ```
 
-Note: 「$emailと書いたのに、なぜ毎回filter_varするのか？名前で十分なのでは？」——口頭で問いかける
+Note: ⏱ 12:00 第3層：見え始めるもの｜「$emailと書いたのに、なぜ毎回filter_varするのか？名前で十分なのでは？」——口頭で問いかける
 
 ---
 
@@ -467,7 +466,7 @@ final class InvalidEmailException extends DomainException {}
 存在するものは必然的に存在し、存在しないものは必然的に存在しない——スピノザ（1677）
 </div>
 
-Note: 一度定義すれば$emailという名前の全コンストラクタで自動適用。$emailに入っている値はたまたま正しいのではなく必然的に正しい。正しくないものはそもそも存在できない
+Note: 一度定義すれば$emailという名前の全コンストラクタで自動適用。$emailに入っている値はたまたま正しいのではなく必然的に正しい。正しくないものはそもそも存在できない。——スピノザの「必然的に存在する」、難しく聞こえますが、皆さんが今ここで私の話を聞けているのは、心臓が動いて、呼吸して、生きているから。存在の前提が満たされている。意味変数も同じで、$emailが存在しているなら、それはもう正しい。
 
 ---
 
@@ -478,13 +477,33 @@ Note: 一度定義すれば$emailという名前の全コンストラクタで�
 ## 意味変数——名前を装飾する
 
 ```php
-public function __construct(
-    int $age,        // 0-150歳
-    #[Teen] int $age // 13-19歳
-) {}
+// $ageは0-150歳
+public function __construct(int $age) {}
+
+// #[Teen]で13-19歳に
+public function __construct(#[Teen] int $age) {}
 ```
 
 Note: $ageは「年齢」の制約を持つ。#[Teen]で装飾すると13-19歳に絞られる。同じ$ageでも文脈で意味が変わる。名前＋属性で存在の条件をさらに細かく定義できる
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">第3層：見え始めるもの</div>
+
+## 意味変数——名前が関係になる
+
+```php
+public function __construct(
+    string $email,
+    string $confirmEmail, // 自動で一致検証
+    int $min,
+    int $max,             // 自動で min < max
+) {}
+```
+
+Note: $confirmEmailと書いただけで$emailとの一致が自動検証される。$minと$maxも同様。名前が制約になるとはこういうこと
 
 ---
 
@@ -496,8 +515,9 @@ Note: $ageは「年齢」の制約を持つ。#[Teen]で装飾すると13-19歳�
 
 ```php
 public function __construct(
-    public string $email,        // 名前だけで検証・メッセージ・多言語
-    public float $bodyTemperature // 名前だけで致死的バイタルを排除
+    public string $email,          // フォーマット制約
+    public float $bodyTemperature, // 値の範囲制約
+    public string $inStockItemId,  // ビジネスルール制約
 ) {}
 ```
 
@@ -505,7 +525,7 @@ public function __construct(
 言霊——言葉に宿る霊力。名前が現実を規定する——日本
 </div>
 
-Note: WHERE?ではなくWHETHER?
+Note: 単なるフォーマット検証ではない。名前の力は値の範囲からビジネスルールにまで及ぶ。まさに言霊。
 
 ---
 
@@ -525,7 +545,7 @@ Note: WHERE?ではなくWHETHER?
 同じ川に二度入ることはできない——ヘラクレイトス（紀元前5世紀）
 </div>
 
-Note: さなぎは卵に戻れない。専門医は研修医に戻らない。saved userはraw dataに戻らない。ドメインと時間は分離できない——現実の存在は常に時間の中にある。OOPはこれを無視してきた。不可逆な変容をコードで表現する
+Note: 「川が流れている」と言いがちだが、違う。流れているのが川だ。流れることは川の動作ではなく、川の存在そのもの。存在と変化は分離できない。だから同じ川に二度入ることはできない——常に変化しているから、元には戻らない。さなぎは卵に戻れない。変容したものは変容前に戻らない。
 
 ---
 
@@ -551,7 +571,7 @@ public Emergency|Observation $being;
 アリストテレスはこれをデュナミス（可能態）と呼んだ——紀元前4世紀
 </div>
 
-Note: 注文とキャンセルは別々に存在しない。注文はキャンセルという可能性を含んでいる。$beingはオブジェクトが自分がなりうるもの全てを宣言する。if文ではない——外部が振り分けるのではなく、存在が自ら発見する
+Note: Success|Failureと書いた瞬間、この処理がたどりうる運命が宣言される。アリストテレスはこれをデュナミス——可能態と呼んだ。どんぐりは樫の木になる可能性を内に持っている。$beingも同じで、なりうるもの全てを自ら宣言する。
 
 ---
 
@@ -584,7 +604,7 @@ final readonly class EmergencyCase
 あなたは私ではない。どうして私が魚の気持ちを知らないと分かるのか？——荘子（紀元前4世紀）
 </div>
 
-Note: 荘子の魚のエピソードを紹介する。deleteしてreadできなければ消えた？——deleteを信用できないのにreadは信用できるのか。外部の検証は循環する。$beenはオブジェクト自身が完了の証拠を内包する——外部ではなく内在的な自己証明
+Note: 荘子が橋の上で「魚は楽しそうだ」と言うと、友人が「お前は魚じゃないのになぜわかる？」と返した。荘子は「お前こそ私じゃないのに、なぜ私にわからないとわかる？」——外から確認しようとすると無限に続く。内側の方がよく知っている。$beenはオブジェクト自身が「私はこう変容した」と証拠を内包する。外部に問い合わせない——自己証明。
 
 ---
 
@@ -635,7 +655,7 @@ final readonly class ValidUser
 内在における超越（Transzendenz in der Immanenz）——フッサール『イデーン』（1913）
 </div>
 
-Note: 超越=外から与えられる力。小麦粉だけではパンにならない。コンストラクタは出会いの場所。validatorは構築後にはもういない——幼少期の友人のように、私を形作ったがもうそこにはいない。$displayNameのどこがInputでどこがInjectかはもう区別できない。内と外は溶け合っている。それがフッサールの「内在における超越」
+Note: 小麦粉だけではパンにならない——水や酵母という外の力が必要。でも焼き上がったパンのどこが小麦粉でどこが酵母かは区別できない。内と外は溶け合っている。それがフッサールの「内在における超越」。validatorは構築後にはもういない——幼少期の友人のように、自分を形作ったがもうそこにはいない。
 
 ---
 
@@ -653,7 +673,7 @@ Note: 超越=外から与えられる力。小麦粉だけではパンになら�
 エンテレケイア——内に目的を持つもの——アリストテレス（紀元前4世紀）
 </div>
 
-Note: 私たちはこの世に放り出される。でも方向性がある——なりたい自分になるという意志。RPGの勇者のように外の世界と出会い成長していく。明日ロックスターにはならない。可能性は有限で方向性がある。各クラスは何をするかではなく何であるかを定義している。Doingのメソッドの束ではなくBeingの連鎖
+Note: 変化には方向がある。どんぐりは樫の木になるが、バラにはならない。OrderInputはDeliveredOrderになるが、Userにはならない。アリストテレスはこれをエンテレケイア——内に目的を持つもの——と呼んだ。可能性は無限ではなく、有限で方向性がある。
 
 ---
 
@@ -678,13 +698,15 @@ final readonly class TriageAssessment
 }
 ```
 
-Note: 一本道だけではない。$beingプロパティの型が可能性を宣言し、コンストラクタの中で自己決定する。外部のルーターやif文ではなく、存在自身が次の姿を選ぶ。これがメタモルフォーシスのメカニズム
+Note: 一本道だけではない。$beingの型が可能性を宣言し、コンストラクタの中で自己決定する。外部のルーターが振り分けるのではない——存在自身が次の姿を選ぶ。
 
 ---
 
 <!-- .slide: data-auto-animate -->
 
-## トリアージ
+<div class="layer-label">第4層：回収</div>
+
+## 例：トリアージ
 
 ```php
 // 意味変数検証
@@ -707,13 +729,13 @@ final class BodyTemperature {
 final class LethalVitalException extends DomainException {}
 ```
 
-Note: トリアージ——救急搬送時に患者の緊急度を判定し、治療の優先順位を決める医療の仕組み
+Note: ⏱ 27:00 第4層：回収｜ここからは実例。トリアージ——救急搬送時に患者の緊急度を判定する仕組み。今まで見てきた概念がひとつのコードに集まる。まずは意味変数。$bodyTemperatureという名前が致死的バイタルを存在させない。
 
 ---
 
 <!-- .slide: data-auto-animate -->
 
-## 入口から分岐まで
+## 存在の変容
 
 ```php
 // 入力クラス
@@ -746,6 +768,8 @@ final readonly class TriageAssessment
     }
 }
 ```
+
+Note: 到着した患者には内在がある——体温と心拍。そこにトリアージプロトコルという超越と出会い、$beingで自らの運命を決める。
 
 ---
 
@@ -785,7 +809,7 @@ final readonly class ObservationCase
 }
 ```
 
-Note: EmergencyCaseにassignWaitingArea()はない。ObservationCaseにassignER()はない。型が能力を決定する。死者が話す問題はここにはない。DDDとも共鳴——クラス名もメソッド名も全てビジネスの言葉。技術的な名前がない
+Note: Emergency $beingを受け取ったからこそEmergencyCaseになり、assignER()という能力を持つ。Observation $beingならObservationCaseになり、assignWaitingArea()。存在の理由が能力を決める。deleteされたユーザーがgetName()できる問題は、ここにはない。——ところで、技術的な名前がひとつもないことに気づきましたか？
 
 ---
 
@@ -808,7 +832,7 @@ Note: EmergencyCaseにassignWaitingArea()はない。ObservationCaseにassignER(
 言葉は存在の家である——ハイデガー（1947）
 </div>
 
-Note: 患者は処理されない。患者が変わっていく。言葉は存在の家——クラス名が主体の変遷を記述し、世界を構築している。自分がどう変わっていくか、それぞれの存在と時間的な不可逆性がアーキテクチャのベースになっている。Input→Being→FinalはRequest→Process→Response、Webの仕組みそのもの
+Note: ⏱ 31:00 統合｜言葉は存在の家——メガネがないと世界が見えない人にとって、メガネが世界への窓になるように、言葉を通じて私たちは存在を認識する。ここではクラス名が主体の変遷を記述し、世界を構築している。そしてもうひとつ——患者は処理されていない。患者自身が内在と超越に出会い、変わっていく。Input、Being、Final——到着した患者がなるべき状態になっている。
 
 ---
 
@@ -848,7 +872,7 @@ Note: 患者は処理されない。患者が変わっていく。言葉は存�
 道は常に無為にして、而も為さざることなし——老子（紀元前6世紀）
 </div>
 
-Note: どこを切り取っても同じ構造。内在が超越と出会って新しい内在になる——フッサールのパターンを繰り返しているだけ。この図はコードから生成できる。アーキテクチャがそのままドキュメンテーション、DDDの理想。誰もコントロールしていない。それぞれが自律し複雑な系を作っている。食物連鎖をコントロールする人はいない、しかし数億年安定して機能している。老子の無為
+Note: 老子は言った——水を移動させるときに、水を動かすな、谷を作れ。制御を手放して、物事が自律的に動く仕組みを作れ。注文が流れるように、しかるべきところにたどり着く。この図に全てを知る者はいない。それぞれが自分の前後だけを知り、中央の制御者なしに調和が生まれている。無為自然。
 
 ---
 
@@ -869,7 +893,7 @@ $final = $becoming(new OrderInput(
 存在は無へと移行し、無は存在へと移行する。この運動が生成である——ヘーゲル（1812）
 </div>
 
-Note: OrderInputが入り、Becomingの中で一度消え、$finalとして新しい存在が現れる。これが生成。複雑さに関わらず呼び出しは変わらない
+Note: OrderInputはBecomingに入った瞬間に消える。どこにも残らない。次のクラスが生まれ、それもまた消え、また生まれる。ロングショットで見れば変化。クローズアップすれば消滅と生成の繰り返し。ヘーゲルが見たのはこれ——存在は無へ、無は存在へ。この運動が生成。
 
 ---
 
@@ -889,7 +913,7 @@ AI ：どう実現するか HOW を解く
 
 </div>
 
-Note: さっきの図、AIも理解できますよね。Input→Being→Finalという構造はAIが検証・理解できる制約でもある。BOPは人間の世界認知であると同時にAIにとっての世界認知でもある。その交差点にBeingがある
+Note: ⏱ 35:00 宣言＋DX→AX｜さっきの図、AIも理解できますよね。Input→Being→Finalという構造はAIが検証・理解できる制約でもある。人間が存在の条件を定義し、AIが実装を解く——その交差点にBeingがある。
 
 ---
 
@@ -902,13 +926,13 @@ Tell, Don't Ask — Object Oriented<br>
 
 </div>
 
-Note: Tell, Don't Askはオブジェクトに聞くな命じろ（Pragmatic Programmers）。Be, Don't Doはその先——命じるのではなく、存在を定義する。BOP = Being Oriented Programming
+Note: Tell, Don't Ask——オブジェクトに聞くな、命じろ。データとロジックを一体にして、オブジェクト自身に処理させる。Be, Don't Do——命じることすらしない。何をするかではなく、何であるかを定義する。Be yourself。
 
 ---
 
 <!-- .slide: data-auto-animate -->
 
-## Being over Doing
+## Doing から Being へ
 
 |  | Doing | Being |
 |---|---|---|
@@ -918,13 +942,13 @@ Note: Tell, Don't Askはオブジェクトに聞くな命じろ（Pragmatic Prog
 | 正しさ | テストによる検証 | 存在していること自体が証明 |
 | 開発者 | 実装する人 | 存在の条件を定義する人 |
 
-Note: cat log | grep | sort——パイプは外からデータを加工していく（他者が変化させる）。Beはオブジェクト自身が変容する（自己変化）。主語が違う
+Note: ちなみに、変化の連鎖ということではUnixパイプも似ている。cat | grep | sort——しかしパイプは外からデータを加工していく。Beはオブジェクト自身が変容する。主語が違う。
 
 ---
 
 <!-- .slide: data-auto-animate -->
 
-## 異なる言語、同じ問い
+## 異なる言葉、同じ問い
 
 <div style="font-size: 0.75em;">
 
@@ -941,7 +965,7 @@ Note: cat log | grep | sort——パイプは外からデータを加工して�
 
 </div>
 
-Note: 時代も文化も言語も違う人々が同じ場所に辿り着いた。哲学者たちは権威ではなく証人。パターンが先に生まれ、哲学的な類似性は後から明らかになった
+Note: ⏱ 37:00 収束｜時代も文化も言葉も違う人々が同じ場所に辿り着いた。哲学者は真理への問いから、私たちはドメインへの問いから。問いの本質が同じだった。
 
 ---
 
@@ -957,7 +981,7 @@ Note: 時代も文化も言語も違う人々が同じ場所に辿り着いた�
 テッド・ネルソン——5歳の時、湖でボートから手を水に入れた体験から
 </div>
 
-Note: ネルソン少年は水に手を入れて、手の動きと水流の関係に心を奪われた。それを超一般化して「世界は絶えず変化する関係と構造のシステム」と結論づけた。ハイパーテキストの発明者が、哲学者たちと同じ場所に辿り着いている
+Note: 5歳の少年がボートから手を水に入れた。手の動きと水流の関係に心を奪われた。その体験から「世界は絶えず変化する関係と構造のシステム」と結論づけた。この少年が後にハイパーテキストを発明する。哲学者でなくても、問いを持てば同じ場所に辿り着く。
 
 ---
 
@@ -981,7 +1005,7 @@ final class You
 
 </div>
 
-Note: $todayはプレゼンそのもの。構築後にはもういない——でもその影響は$visionの中に生きている。内在における超越。遊び友達はいなくなったけど経験は残った
+Note: ⏱ 38:30 締め｜$todayはこのプレゼンそのもの。もうすぐステージも私もいなくなる。でもその影響は$visionの中に生きている。超越は構築後に消える——しかし内在を変える。
 
 ---
 
@@ -993,7 +1017,7 @@ Note: $todayはプレゼンそのもの。構築後にはもういない——�
 
 </div>
 
-Note: ここまで聞いてどう感じましたか？ 奇妙に思えたかもしれない。でもいくつかは膝を打つこともあったかもしれない。——新しい考え方に出会ったとき、人は2つの態度を取れる。手続き型だけの時代にOOPは奇妙に映った。でも今は当たり前になっている。好奇心を持ってトライするか、皆がうまくいったら乗るか。どちらが正しいということではない。でもその選択が明日のあなたを形作る。開発者として何をしたい（Doing）かを超えて、どうなりたいか（Being）。あなたの$beingは何ですか？
+Note: ここまで聞いてどう感じましたか？ ——新しい考え方に出会ったとき、人は2つの態度を取れる。手続き型だけの時代にOOPは奇妙に映った。好奇心を持ってトライするか、皆がうまくいったら乗るか。どちらが正しいということではない。でもその選択が明日のあなたを形作る。あなたはどんないうエンジニア、どういうbeingになりたいですか？
 
           </textarea>
         </section>
@@ -1046,7 +1070,7 @@ Note: ここまで聞いてどう感じましたか？ 奇妙に思えたかも�
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides.md"],"static":"_site"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides.md"],"static":"/tmp/be-slide-static"}, queryOptions);
     </script>
 
 

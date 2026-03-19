@@ -185,6 +185,9 @@
     background: #1d1d1f;
     border-color: #424245;
 }
+.reveal section.overflow-visible {
+    overflow: visible !important;
+}
 .reveal .tree-diagram {
     background: none;
     box-shadow: none;
@@ -193,14 +196,18 @@
     transform: scale(1.25);
     transform-origin: top center;
 }
+.reveal .callout {
+    font-size: 1.2em;
+    margin-top: 1.5em;
+}
 </style>
 
 <!-- .slide: data-auto-animate data-background-color="#000000" -->
 
 # "Be, Don't Do"
 
-### Ontological Programming
-#### Describing Time and Being
+## Ontological Programming
+### Describing Time and Being
 
 <div style="margin-top: 2.5em; font-size: 0.75em;">
 Akihito Koriyama　／　PHPerKaigi 2026
@@ -216,7 +223,7 @@ Akihito Koriyama　／　PHPerKaigi 2026
 A framework for seeing and thinking about the world
 </div>
 
-Note: Have you ever thought about paradigms? Today is a challenge. Don't interpret through the lens of what you already know. Set aside utility. Discomfort is evidence of cognitive expansion — enjoy it.
+Note: ⏱ 0:30 Opening | Have you ever thought about paradigms? Today is a challenge. Don't interpret through the lens of what you already know. Set aside utility. Discomfort is evidence of cognitive expansion — enjoy it.
 
 ---
 
@@ -317,7 +324,7 @@ $user->delete();
 echo $user->getName();  // "Alice" ? null ? exception ?
 ```
 
-Note: We create Alice with new User('Alice'). $user is Alice. We delete Alice with delete(). What does $user represent now? Should getName() return "Alice"? null? — Neither feels right. A moment ago this seemed fine, but now it looks wrong. That shift is cognition changing. What we thought was object-oriented — $user never really represented a user — it was just a bundle of Doings. This foreshadows the title "Be, Don't Do". Later we'll connect this to DeletedUser.
+Note: ⏱ 5:00 Layer 1: The Crack | We create Alice with new User('Alice'). $user is Alice. We delete Alice with delete(). What does $user represent now? Should getName() return "Alice"? null? — Neither feels right. A moment ago this seemed fine, but now it looks wrong. That shift is cognition changing. What we thought was object-oriented — $user never really represented a user — it was just a bundle of Doings. This foreshadows the title "Be, Don't Do". Later we'll connect this to DeletedUser.
 
 ---
 
@@ -376,7 +383,7 @@ Note: Procedural programming separated data and logic. OOP was supposed to unify
 
 ## A Shift in the Question
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 ```
 HOW?      How to do it (Procedural)
@@ -387,7 +394,7 @@ WHETHER?  Can it even exist? (Be)
 
 </div>
 
-Note: Procedural → HOW, OOP → WHAT — these should be familiar. Ontological Programming → WHETHER. Emphasize WHETHER when speaking.
+Note: ⏱ 9:00 Layer 2: WHETHER? | Procedural → HOW, OOP → WHAT — these should be familiar. Ontological Programming → WHETHER. Emphasize WHETHER when speaking.
 
 ---
 
@@ -397,7 +404,7 @@ Note: Procedural → HOW, OOP → WHAT — these should be familiar. Ontological
 
 ## Can It Exist?
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 ```
 A person with a negative age cannot exist
@@ -425,7 +432,7 @@ public function register(string $email) {
 }
 ```
 
-Note: "You wrote $email, so why do you call filter_var every time? Shouldn't the name be enough?" — pose this as a question to the audience.
+Note: ⏱ 12:00 Layer 3: What Begins to Emerge | "You wrote $email, so why do you call filter_var every time? Shouldn't the name be enough?" — pose this as a question to the audience.
 
 ---
 
@@ -470,13 +477,33 @@ Note: Define it once, and it automatically applies to every constructor paramete
 ## Semantic Variables — Decorating Names
 
 ```php
-public function __construct(
-    int $age,        // 0–150 years
-    #[Teen] int $age // 13–19 years
-) {}
+// $age is 0–150 years
+public function __construct(int $age) {}
+
+// #[Teen] narrows to 13–19
+public function __construct(#[Teen] int $age) {}
 ```
 
 Note: $age carries the constraint of "age". Decorate it with #[Teen] and it narrows to 13–19. The same $age takes on different meaning depending on context. Name + attribute lets you define existential conditions with finer granularity.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<div class="layer-label">Layer 3: What Begins to Emerge</div>
+
+## Semantic Variables — Names Become Relationships
+
+```php
+public function __construct(
+    string $email,
+    string $confirmEmail, // Auto-verified to match
+    int $min,
+    int $max,             // Auto-enforced min < max
+) {}
+```
+
+Note: Just by writing $confirmEmail, its match with $email is automatically verified. Same for $min and $max. Names define not just individual constraints but relationships between variables.
 
 ---
 
@@ -488,8 +515,9 @@ Note: $age carries the constraint of "age". Decorate it with #[Teen] and it narr
 
 ```php
 public function __construct(
-    public string $email,        // Name alone handles validation, messages, i18n
-    public float $bodyTemperature // Name alone excludes lethal vitals
+    public string $email,          // Format constraint
+    public float $bodyTemperature, // Value range constraint
+    public string $inStockItemId,  // Business rule constraint
 ) {}
 ```
 
@@ -497,7 +525,7 @@ public function __construct(
 Kotodama — the spiritual power dwelling in words. Names define reality — Japan
 </div>
 
-Note: WHERE? No — WHETHER?
+Note: Not just format validation. The power of names extends from value ranges to business rules. Truly kotodama.
 
 ---
 
@@ -699,7 +727,7 @@ final class BodyTemperature {
 final class LethalVitalException extends DomainException {}
 ```
 
-Note: Triage — the medical system for assessing patient urgency during emergency transport and prioritizing treatment.
+Note: ⏱ 27:00 Layer 4: Payoff | Triage — the medical system for assessing patient urgency during emergency transport and prioritizing treatment.
 
 ---
 
@@ -800,11 +828,11 @@ Note: EmergencyCase has no assignWaitingArea(). ObservationCase has no assignER(
 Language is the house of being — Heidegger (1947)
 </div>
 
-Note: The patient is not processed. The patient transforms. Language is the house of being — class names describe the subject's transformation and construct the world. How you change, each state of being and its temporal irreversibility — that is the foundation of the architecture. Input → Being → Final is Request → Process → Response — the very structure of the web.
+Note: ⏱ 31:00 Synthesis | The patient is not processed. The patient transforms. Language is the house of being — class names describe the subject's transformation and construct the world. How you change, each state of being and its temporal irreversibility — that is the foundation of the architecture. Input → Being → Final is Request → Process → Response — the very structure of the web.
 
 ---
 
-<!-- .slide: data-auto-animate -->
+<!-- .slide: data-auto-animate class="overflow-visible" -->
 
 ## The Same Structure, However Complex
 
@@ -836,7 +864,7 @@ Note: The patient is not processed. The patient transforms. Language is the hous
                                                                                               +--- <span class="final-node">ReturnedOrder</span> <span style="color:#0071e3">$been</span>
 </pre>
 
-<div class="epigraph">
+<div class="epigraph" style="margin-top: 0.5em;">
 The Tao does nothing, yet nothing is left undone — Laozi (6th century BC)
 </div>
 
@@ -869,7 +897,7 @@ Note: OrderInput enters, vanishes within Becoming, and a new being emerges as $f
 
 ## From DX to AX
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 ```
 DX: Code that is easy for humans to write
@@ -881,7 +909,7 @@ AI:     Solve HOW — how to realize it
 
 </div>
 
-Note: Remember the diagram? AI can understand it too. The Input → Being → Final structure is also a set of constraints that AI can verify and comprehend. BOP is a way of perceiving the world for humans and AI alike. Being sits at that intersection.
+Note: ⏱ 35:00 Declaration + DX→AX | Remember the diagram? AI can understand it too. The Input → Being → Final structure is also a set of constraints that AI can verify and comprehend. BOP is a way of perceiving the world for humans and AI alike. Being sits at that intersection.
 
 ---
 
@@ -933,7 +961,7 @@ Note: cat log | grep | sort — pipes process data from the outside (others chan
 
 </div>
 
-Note: People across different eras, cultures, and languages arrived at the same place. The philosophers are not authorities but witnesses. The patterns emerged first; the philosophical parallels became apparent later.
+Note: ⏱ 37:00 Convergence | People across different eras, cultures, and languages arrived at the same place. The philosophers are not authorities but witnesses. The patterns emerged first; the philosophical parallels became apparent later.
 
 ---
 
@@ -973,7 +1001,7 @@ final class You
 
 </div>
 
-Note: $today is this very presentation. It's gone after construction — but its influence lives on within $vision. Transcendence within immanence. The childhood friend is gone, but the experience remains.
+Note: ⏱ 38:30 Closing | $today is this very presentation. It's gone after construction — but its influence lives on within $vision. Transcendence within immanence. The childhood friend is gone, but the experience remains.
 
 ---
 
