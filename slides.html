@@ -730,9 +730,9 @@ Note: ⏱ 27:00 第4層：回収｜ここからは実例。トリアージ——
 
 ---
 
-<!-- .slide: data-auto-animate -->
+## 存在の起点
 
-## 存在の変容
+患者がバイタルサインとともに到着する
 
 ```php
 // 入力クラス
@@ -745,6 +745,14 @@ final readonly class PatientArrivalInput
     ) {}
 }
 ```
+
+Note: 患者が体温と心拍を伴って到着する。これが起点。#[Be]属性がこの入力からTriageAssessmentへの変容を宣言している。bodyTemperatureとheartRateは次のクラスに引き渡される。
+
+---
+
+## 存在の分岐
+
+トリアージプロトコルが運命を決める
 
 ```php
 // 存在クラス（$being で分岐）
@@ -789,7 +797,7 @@ final readonly class EmergencyCase
         $this->color = 'RED';
     }
 
-    public function assignER(): string { ... }          // この能力はここだけ
+    public function assignER(): string { ... }　// この能力はここだけ
 }
 ```
 
@@ -802,7 +810,7 @@ final readonly class ObservationCase
         #[Input] Observation $being
     ) {}
 
-    public function assignWaitingArea(): string { ... }  // この能力はここだけ
+    public function assignWaitingArea(): string { ... } // この能力はここだけ
 }
 ```
 
@@ -1067,7 +1075,7 @@ Note: ここまで聞いてどう感じましたか？ ——新しい考え方�
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.BmmGUjV241"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.s6O7ZcUt2u"}, queryOptions);
     </script>
 
 
