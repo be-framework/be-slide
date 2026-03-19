@@ -440,7 +440,7 @@ Note: ⏱ 12:00 Layer 3: What Begins to Emerge | "You wrote $email, so why do yo
 
 <div class="layer-label">Layer 3: What Begins to Emerge</div>
 
-## Semantic Variables — Names Become Constraints
+## Semantic Variables
 
 ```php
 final class Email
@@ -454,11 +454,8 @@ final class Email
     }
 }
 
-#[Message([
-    'en' => 'Invalid email address.',
-    'ja' => '有効なメールアドレスを入力してください。'
-])]
-final class InvalidEmailException extends DomainException {}
+// Any constructor with $email is auto-validated by name
+public function __construct(string $email) {}
 ```
 
 
@@ -474,7 +471,7 @@ Note: Define it once, and it automatically applies to every constructor paramete
 
 <div class="layer-label">Layer 3: What Begins to Emerge</div>
 
-## Semantic Variables — Decorating Names
+## Decorating Names
 
 ```php
 // $age is 0–150 years
@@ -492,7 +489,7 @@ Note: $age carries the constraint of "age". Decorate it with #[Teen] and it narr
 
 <div class="layer-label">Layer 3: What Begins to Emerge</div>
 
-## Semantic Variables — Names Become Relationships
+## Names as Relations
 
 ```php
 public function __construct(
@@ -535,7 +532,7 @@ Note: Not just format validation. The power of names extends from value ranges t
 
 ## Panta Rhei — Everything Flows
 
-<div style="margin-top: 1.5em; font-size: 1.2em;">
+<div class="callout">
 
 Egg → Larva → Chrysalis → Butterfly
 
@@ -704,7 +701,9 @@ Note: It's not always a straight line. The $being property's type declares the p
 
 <!-- .slide: data-auto-animate -->
 
-## Triage
+<div class="layer-label">Layer 4: Payoff</div>
+
+## Example: Triage
 
 ```php
 // Semantic variable validation
@@ -928,7 +927,7 @@ Note: Tell, Don't Ask means don't query objects, command them (Pragmatic Program
 
 <!-- .slide: data-auto-animate -->
 
-## Being over Doing
+## Doing to Being
 
 |  | Doing | Being |
 |---|---|---|
@@ -1065,7 +1064,7 @@ Note: How did this feel to you? It may have seemed strange. But perhaps some of 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.lhDcDZ6J36"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.js5THXG7TO"}, queryOptions);
     </script>
 
 

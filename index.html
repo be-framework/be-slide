@@ -440,7 +440,7 @@ Note: ⏱ 12:00 第3層：見え始めるもの｜「$emailと書いたのに、
 
 <div class="layer-label">第3層：見え始めるもの</div>
 
-## 意味変数——名前が制約になる
+## 意味変数
 
 ```php
 final class Email
@@ -454,11 +454,8 @@ final class Email
     }
 }
 
-#[Message([
-    'en' => 'Invalid email address.',
-    'ja' => '有効なメールアドレスを入力してください。'
-])]
-final class InvalidEmailException extends DomainException {}
+// $email という名前があれば、どのコンストラクタでも自動検証
+public function __construct(string $email) {}
 ```
 
 
@@ -474,7 +471,7 @@ Note: 一度定義すれば$emailという名前の全コンストラクタで�
 
 <div class="layer-label">第3層：見え始めるもの</div>
 
-## 意味変数——名前を装飾する
+## 名前を装飾する
 
 ```php
 // $ageは0-150歳
@@ -492,7 +489,7 @@ Note: $ageは「年齢」の制約を持つ。#[Teen]で装飾すると13-19歳�
 
 <div class="layer-label">第3層：見え始めるもの</div>
 
-## 意味変数——名前が関係になる
+## 名前が関係になる
 
 ```php
 public function __construct(
@@ -1070,7 +1067,7 @@ Note: ここまで聞いてどう感じましたか？ ——新しい考え方�
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.zZoHJggTVj"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.BmmGUjV241"}, queryOptions);
     </script>
 
 
