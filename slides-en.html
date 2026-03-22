@@ -613,50 +613,15 @@ Note: Introduce Zhuangzi's fish parable. If you delete and then can't read, is i
 
 <div class="layer-label">Layer 3: What Begins to Emerge</div>
 
-## Immanence and Transcendence
+## What You Carry, What You Meet
 
-```php
-#[Be(ValidUser::class)]              // Declare the next state of being
-final readonly class UserInput
-{
-    public function __construct(
-        public string $name,           // immanence
-        public string $email           // immanence
-    ) {}
-}
-```
-
-Note: Immanence = what you carry within yourself. UserInput holds only its own properties.
-
----
-
-<!-- .slide: data-auto-animate -->
-
-<div class="layer-label">Layer 3: What Begins to Emerge</div>
-
-## Immanence and Transcendence
-
-```php
-final readonly class ValidUser
-{
-    public string $displayName;
-
-    public function __construct(
-        #[Input]  string $name,         // Inherited from the prior being
-        #[Input]  string $email,        // Inherited from the prior being
-        #[Inject] Validator $validator  // Power granted from outside
-    ) {
-        $validator->validate($email);
-        $this->displayName = ucfirst($name);
-    }
-}
-```
+Immanence (what you carry) × Transcendence (what you meet) ＝ A transformed self
 
 <div class="epigraph">
 Transcendence within immanence (Transzendenz in der Immanenz) — Husserl, Ideas (1913)
 </div>
 
-Note: Transcendence = power given from outside. Flour alone doesn't become bread. The constructor is a place of encounter. The validator is gone after construction — like a childhood friend who shaped you but is no longer there. You can no longer tell which part of $displayName came from Input and which from Inject. Inner and outer have merged. That is Husserl's "transcendence within immanence".
+Note: A seed meets soil and water — and becomes a sprout. A child meets teachers and friends — and grows. Flour meets yeast and water — and becomes bread. Everything follows the same pattern. What you carry within meets what comes from outside, and you become a transformed self. After the transformation, you can no longer tell what was inside from what came from outside. Husserl called this "transcendence within immanence." In the code that follows, you'll see this pattern in action.
 
 ---
 
@@ -1076,7 +1041,7 @@ Note: How did this feel to you? It may have seemed strange. But perhaps some of 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.zer5Tx2ZaT","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.B0wjp5nTz4","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
     </script>
 
 
@@ -1093,10 +1058,7 @@ Note: How did this feel to you? It may have seemed strange. But perhaps some of 
       const mermaidOptions = extend({ startOnLoad: false }, {});
       mermaid.startOnLoad = false;
       mermaid.initialize(mermaidOptions);
-      const cb = function (event) {
-        mermaid.init(mermaidOptions, '.stack.present > .present pre code.mermaid');
-        mermaid.init(mermaidOptions, '.slides > .present:not(.stack) pre code.mermaid');
-      }
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
       Reveal.addEventListener('ready', cb);
       Reveal.addEventListener('slidetransitionend', cb);
     </script>
