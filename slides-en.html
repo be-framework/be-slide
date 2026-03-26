@@ -328,7 +328,7 @@ $user->delete();
 echo $user->getName();  // "Alice" ? null ? exception ?
 ```
 
-Note: The crack in OOP. What should getName() return after delete()? $user didn't represent existence — it was just a symbol bundling operations. Noticing this discomfort is itself a paradigm shift.
+Note: The crack in OOP. What should getName() return after delete()? \$user didn't represent existence — it was just a symbol bundling operations. Noticing this discomfort is itself a paradigm shift.
 
 ---
 
@@ -336,7 +336,7 @@ Note: The crack in OOP. What should getName() return after delete()? $user didn'
 
 <div class="layer-label">Layer 1: The Crack</div>
 
-## How Many Methods Does a User Class Have?
+## The User Class
 
 ```php
 interface User {
@@ -436,7 +436,7 @@ public function register(string $email) {
 }
 ```
 
-Note: Validation with filter_var. What if the variable name $email itself guaranteed correct format?
+Note: Validation with filter_var. What if the variable name \$email itself guaranteed correct format?
 
 ---
 
@@ -467,7 +467,7 @@ public function __construct(string $email) {}
 Whatever exists, exists necessarily; whatever does not exist, cannot possibly exist — Spinoza (1677)
 </div>
 
-Note: Define it once, and it automatically applies to every constructor parameter named $email. The value in $email is not correct by accident — it is correct by necessity. What cannot be correct simply cannot exist.
+Note: Define it once, and it automatically applies to every constructor parameter named \$email. The value in \$email is not correct by accident — it is correct by necessity. What cannot be correct simply cannot exist.
 
 ---
 
@@ -485,7 +485,7 @@ public function __construct(int $age) {}
 public function __construct(#[Teen] int $age) {}
 ```
 
-Note: $age carries the constraint of "age". Decorate it with #[Teen] and it narrows to 13–19. The same $age takes on different meaning depending on context. Name + attribute lets you define existential conditions with finer granularity.
+Note: \$age carries the constraint of "age". Decorate it with #[Teen] and it narrows to 13–19. The same \$age takes on different meaning depending on context. Name + attribute lets you define existential conditions with finer granularity.
 
 ---
 
@@ -504,7 +504,7 @@ public function __construct(
 ) {}
 ```
 
-Note: Just by writing $confirmEmail, its match with $email is automatically verified. Same for $min and $max. Names define not just individual constraints but relationships between variables.
+Note: Just by writing \$confirmEmail, its match with \$email is automatically verified. Same for \$min and \$max. Names define not just individual constraints but relationships between variables.
 
 ---
 
@@ -572,7 +572,7 @@ public Emergency|Observation $being;
 Aristotle called this dynamis (potentiality) — 4th century BC
 </div>
 
-Note: An order and its cancellation don't exist separately. The order contains the possibility of cancellation within itself. $being declares everything an object can become. This is not an if-statement — it's not external routing, but existence discovering itself.
+Note: An order and its cancellation don't exist separately. The order contains the possibility of cancellation within itself. \$being declares everything an object can become. This is not an if-statement — it's not external routing, but existence discovering itself.
 
 ---
 
@@ -605,7 +605,7 @@ final readonly class EmergencyCase
 You are not I. How do you know that I do not know the joy of fishes? — Zhuangzi (4th century BC)
 </div>
 
-Note: Introduce Zhuangzi's fish parable. If you delete and then can't read, is it gone? — You don't trust delete, yet you trust read? External verification is circular. $been means the object itself contains proof of completion — intrinsic self-certification, not external verification.
+Note: Zhuangzi's Haoliang debate. External confirmation regresses infinitely. \$been means the object itself contains proof of transformation — self-certification.
 
 ---
 
@@ -664,7 +664,7 @@ final readonly class TriageAssessment
 }
 ```
 
-Note: It's not always a straight line. The $being property's type declares the possibilities, and the constructor self-determines the outcome. Not an external router or if-statement — existence itself chooses its next form. This is the mechanism of metamorphosis.
+Note: \$being's type declares the possibilities, and the constructor self-determines the outcome. No external control — existence itself chooses its next form.
 
 ---
 
@@ -695,7 +695,7 @@ final class BodyTemperature {
 final class LethalVitalException extends DomainException {}
 ```
 
-Note: Worked example: triage (urgency assessment during emergency transport). Semantic variable $bodyTemperature prevents lethal vitals from existing.
+Note: Worked example: triage (urgency assessment during emergency transport). Semantic variable \$bodyTemperature prevents lethal vitals from existing.
 
 ---
 
@@ -865,7 +865,7 @@ $final = $becoming(new OrderInput(
 What has arisen perishes in that very instant. Its cessation requires no other cause. — Mahāvibhāṣā (2nd c.)
 </div>
 
-Note: OrderInput enters, vanishes within Becoming, and a new being emerges as $final. What 2nd-century Buddhist scholars saw — what arises perishes in that very instant. No need to call destroy() from outside. Its cessation requires no other cause.
+Note: OrderInput enters Becoming and vanishes. Creation and cessation repeating — kṣaṇa-nirodha. Each class is immutable with no external property access.
 
 ---
 
@@ -917,7 +917,7 @@ ActiveUser → DeletedUser
 
 </div>
 
-Note: After delete(), $user still exists. Even creating DeletedUser leaves the original $user alive. In Becoming, the original ceases to exist and only DeletedUser remains. Not erasure but metamorphosis — even deletion is described as existence.
+Note: After delete(), \$user still exists. Even creating DeletedUser leaves the original \$user alive. In Becoming, the original ceases to exist and only DeletedUser remains. Not erasure but metamorphosis — even deletion is described as existence.
 
 ---
 
@@ -1006,7 +1006,7 @@ final class You
 
 </div>
 
-Note: This presentation itself is being-oriented. $today is this presentation. The stage and speaker will disappear, but the influence lives on in $vision. Transcendence vanishes — but immanence is changed.
+Note: This presentation itself is being-oriented. \$today is this presentation. The stage and speaker will disappear, but the influence lives on in \$vision. Transcendence vanishes — but immanence is changed.
 
 ---
 
@@ -1018,7 +1018,7 @@ Note: This presentation itself is being-oriented. $today is this presentation. T
 
 </div>
 
-Note: Beyond Doing to Being. What kind of existence do you want to be as an engineer? What is your $being?
+Note: Beyond Doing to Being. What kind of existence do you want to be as an engineer? What is your \$being?
           </textarea>
         </section>
       </div>
@@ -1070,7 +1070,7 @@ Note: Beyond Doing to Being. What kind of existence do you want to be as an engi
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.Pv3txaV6Ru","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.h51THIxQda","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
     </script>
 
 
