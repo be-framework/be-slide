@@ -227,7 +227,7 @@ Akihito Koriyama (@koriym)
 A framework for seeing and thinking about the world
 </div>
 
-Note: ⏱ 0:30 Opening | Have you ever thought about paradigms? Today is a challenge. Don't interpret through the lens of what you already know. Set aside utility. Discomfort is evidence of cognitive expansion — enjoy it.
+Note: Copernican shift: geocentrism held for 1400 years, then overturned. Programming also has paradigms. New perspectives feel uncomfortable at first — don't judge by old frameworks, focus on possibilities.
 
 ---
 
@@ -271,7 +271,7 @@ $user->save();
 
 </div>
 
-Note: When I first wrote code on the 6502, I wondered how you could ever make Mario jump with this. Timeline: assembler appeared 1949, widespread in the 50s; procedural — FORTRAN 1957, C 1972, widespread 60s–70s; OOP — Alan Kay coined the term in 1967, Smalltalk-80, widespread in the 90s–2000s with Java/PHP.
+Note: 6502 assembler (1950s) — this much code just for 1+2. Procedural (1960s) — describe data operations as steps. OOP (1970s) — unify data and logic, describe as things.
 
 ---
 
@@ -328,7 +328,7 @@ $user->delete();
 echo $user->getName();  // "Alice" ? null ? exception ?
 ```
 
-Note: ⏱ 5:00 Layer 1: The Crack | We create Alice with new User('Alice'). $user is Alice. We delete Alice with delete(). What does $user represent now? Should getName() return "Alice"? null? — Neither feels right. A moment ago this seemed fine, but now it looks wrong. That shift is cognition changing. What we thought was object-oriented — $user never really represented a user — it was just a bundle of Doings. This foreshadows the title "Be, Don't Do". Later we'll connect this to DeletedUser.
+Note: The crack in OOP. What should getName() return after delete()? $user didn't represent existence — it was just a symbol bundling operations. Noticing this discomfort is itself a paradigm shift.
 
 ---
 
@@ -398,7 +398,7 @@ WHETHER?  Can it even exist? (Be)
 
 </div>
 
-Note: ⏱ 9:00 Layer 2: WHETHER? | Procedural → HOW, OOP → WHAT — these should be familiar. Ontological Programming → WHETHER. Emphasize WHETHER when speaking.
+Note: Procedural = HOW (how to do it), OOP = WHAT (what is it). New question: WHETHER — can it even exist?
 
 ---
 
@@ -436,7 +436,7 @@ public function register(string $email) {
 }
 ```
 
-Note: ⏱ 12:00 Layer 3: What Begins to Emerge | "You wrote $email, so why do you call filter_var every time? Shouldn't the name be enough?" — pose this as a question to the audience.
+Note: Validation with filter_var. What if the variable name $email itself guaranteed correct format?
 
 ---
 
@@ -695,7 +695,7 @@ final class BodyTemperature {
 final class LethalVitalException extends DomainException {}
 ```
 
-Note: ⏱ 27:00 Layer 4: Payoff | Triage — the medical system for assessing patient urgency during emergency transport and prioritizing treatment.
+Note: Worked example: triage (urgency assessment during emergency transport). Semantic variable $bodyTemperature prevents lethal vitals from existing.
 
 ---
 
@@ -804,7 +804,7 @@ Note: EmergencyCase has no assignWaitingArea(). ObservationCase has no assignER(
 Language is the house of being — Heidegger (1947)
 </div>
 
-Note: ⏱ 31:00 Synthesis | The patient is not processed. The patient transforms. Language is the house of being — class names describe the subject's transformation and construct the world. How you change, each state of being and its temporal irreversibility — that is the foundation of the architecture. Input → Being → Final is Request → Process → Response — the very structure of the web.
+Note: The patient is not "processed." They encounter immanence and transcendence, transforming on their own. Input → Being → Final. Notice: not a single technical name.
 
 ---
 
@@ -844,7 +844,7 @@ Note: ⏱ 31:00 Synthesis | The patient is not processed. The patient transforms
 The Tao does nothing, yet nothing is left undone — Laozi (6th century BC)
 </div>
 
-Note: No matter where you look, the same structure appears. Immanence meets transcendence and becomes new immanence — just repeating Husserl's pattern. This diagram can be generated from code. Architecture is documentation — the DDD ideal. No one is in control. Each part is autonomous, forming a complex system. No one controls a food chain, yet it has functioned stably for hundreds of millions of years. Laozi's wu wei.
+Note: Same pattern even in complex examples. Laozi — don't move water, create valleys. No central controller, yet harmony emerges. Wu wei.
 
 ---
 
@@ -885,7 +885,7 @@ AI:     Solve HOW — how to realize it
 
 </div>
 
-Note: ⏱ 35:00 Declaration + DX→AX | Remember the diagram? AI can understand it too. The Input → Being → Final structure is also a set of constraints that AI can verify and comprehend. BOP is a way of perceiving the world for humans and AI alike. Being sits at that intersection.
+Note: DX focused on reducing human cognitive load. In the age of infinite AI generation, the human role is to define conditions of existence (WHETHER). AI solves implementation (HOW).
 
 ---
 
@@ -899,6 +899,35 @@ Tell, Don't Ask — Object Oriented<br>
 </div>
 
 Note: Tell, Don't Ask means don't query objects, command them (Pragmatic Programmers). Be, Don't Do goes further — don't command, define existence. BOP = Being Oriented Programming.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Deletion Is Also Existence
+
+<div class="callout">
+
+```
+$user->delete() // $user?
+$deleted = new DeletedUser($user) // $user?
+
+ActiveUser → DeletedUser
+```
+
+</div>
+
+Note: After delete(), $user still exists. Even creating DeletedUser leaves the original $user alive. In Becoming, the original ceases to exist and only DeletedUser remains. Not erasure but metamorphosis — even deletion is described as existence.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## The Essence of Technology
+
+OOP / FP / DDD / MVC …
+
+Note: OOP = code in business language, FP = immutability and transformation, DDD = domain projection, MVC = separation of concerns. Be reintegrates these through the axis of existence.
 
 ---
 
@@ -937,7 +966,7 @@ Note: cat log | grep | sort — pipes process data from the outside (others chan
 
 </div>
 
-Note: ⏱ 37:00 Convergence | People across different eras, cultures, and languages arrived at the same place. The philosophers are not authorities but witnesses. The patterns emerged first; the philosophical parallels became apparent later.
+Note: People across different eras and cultures arrived at the same place. Philosophers from the question of truth, us from the question of domain. The essence of the question was the same.
 
 ---
 
@@ -977,7 +1006,7 @@ final class You
 
 </div>
 
-Note: ⏱ 38:30 Closing | $today is this very presentation. It's gone after construction — but its influence lives on within $vision. Transcendence within immanence. The childhood friend is gone, but the experience remains.
+Note: This presentation itself is being-oriented. $today is this presentation. The stage and speaker will disappear, but the influence lives on in $vision. Transcendence vanishes — but immanence is changed.
 
 ---
 
@@ -989,7 +1018,7 @@ Note: ⏱ 38:30 Closing | $today is this very presentation. It's gone after cons
 
 </div>
 
-Note: How did this feel to you? It may have seemed strange. But perhaps some of it resonated. — When you encounter a new way of thinking, you can take one of two stances. OOP seemed strange in the era of procedural programming alone. But now it's taken for granted. Will you try it with curiosity, or wait until everyone else succeeds first? Neither is wrong. But that choice shapes who you become tomorrow. Beyond what you want to do (Doing) as a developer — who do you want to be (Being)? What is your $being?
+Note: Beyond Doing to Being. What kind of existence do you want to be as an engineer? What is your $being?
           </textarea>
         </section>
       </div>
@@ -1041,7 +1070,7 @@ Note: How did this feel to you? It may have seemed strange. But perhaps some of 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.YSZb3o7MS1","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.Pv3txaV6Ru","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
     </script>
 
 
