@@ -332,7 +332,7 @@ $user->delete();
 echo $user->getName();  // "Alice" ? null ? exception ?
 ```
 
-Note: ⏱ 5:00 Layer 1: The Crack | We create the Alice user with new User('Alice'). $user is Alice. We delete Alice with delete(). Should getName() return Alice? null? — Neither feels right. What does $user represent? ... There's no answer. Maybe $user never represented a user at all — it was just a symbol bundling operations on a user.
+Note: ⏱ 5:00 Layer 1: The Crack | We create the Alice user with new User('Alice'). \$user is Alice. We delete Alice with delete(). Should getName() return Alice? null? — Neither feels right. What does \$user represent? ... There's no answer. Maybe \$user never represented a user at all — it was just a symbol bundling operations on a user.
 
 ---
 
@@ -340,7 +340,7 @@ Note: ⏱ 5:00 Layer 1: The Crack | We create the Alice user with new User('Alic
 
 <div class="layer-label">Layer 1: The Crack</div>
 
-## How Many Methods Does a User Class Have?
+## The User Class
 
 ```php
 interface User {
@@ -452,7 +452,7 @@ public function register(string $email) {
 }
 ```
 
-Note: We're running filter_var on $email. But what if a variable named $email always contained a valid email?
+Note: We're running filter_var on \$email. But what if a variable named \$email always contained a valid email?
 
 ---
 
@@ -483,7 +483,7 @@ public function __construct(string $email) {}
 Whatever exists, exists necessarily; whatever does not exist, cannot possibly exist — Spinoza (1677)
 </div>
 
-Note: Semantic variables solve this. Variables carry meaning and constraints. Define it once, and it automatically applies to every constructor parameter named $email. The value in $email is not correct by accident — it is correct by necessity. What isn't correct simply cannot exist. — Spinoza's "necessary existence" sounds difficult, but think about it: the reason you can sit here and listen to me right now is that your heart is beating, you're breathing, you're alive. The preconditions for existence are met. Semantic variables are the same — if $email exists, it's already correct.
+Note: Semantic variables solve this. Variables carry meaning and constraints. Define it once, and it automatically applies to every constructor parameter named \$email. The value in \$email is not correct by accident — it is correct by necessity. What isn't correct simply cannot exist. — Spinoza's "necessary existence" sounds difficult, but think about it: the reason you can sit here and listen to me right now is that your heart is beating, you're breathing, you're alive. The preconditions for existence are met. Semantic variables are the same — if \$email exists, it's already correct.
 
 ---
 
@@ -501,7 +501,7 @@ public function __construct(int $age) {}
 public function __construct(#[Teen] int $age) {}
 ```
 
-Note: $age carries the constraint of "age". Decorate it with #[Teen] and it narrows to 13–19. The same $age takes on different meaning depending on context. Name + attribute lets you define existential conditions with finer granularity.
+Note: \$age carries the constraint of "age". Decorate it with #[Teen] and it narrows to 13–19. The same \$age takes on different meaning depending on context. Name + attribute lets you define existential conditions with finer granularity.
 
 ---
 
@@ -520,7 +520,7 @@ public function __construct(
 ) {}
 ```
 
-Note: Just by writing $confirmEmail, its match with $email is automatically verified. Same for $min and $max. This is what it means for names to become constraints.
+Note: Just by writing \$confirmEmail, its match with \$email is automatically verified. Same for \$min and \$max. This is what it means for names to become constraints.
 
 ---
 
@@ -588,7 +588,7 @@ public Emergency|Observation $being;
 Aristotle called this dynamis (potentiality) — 4th century BC
 </div>
 
-Note: The moment you write Success|Failure, the possible destinies of this process are declared. Aristotle called this dynamis — potentiality. An order carries the possibility of cancellation within itself. $being works the same way: it declares everything it can become.
+Note: The moment you write Success|Failure, the possible destinies of this process are declared. Aristotle called this dynamis — potentiality. An order carries the possibility of cancellation within itself. \$being works the same way: it declares everything it can become.
 
 ---
 
@@ -621,7 +621,7 @@ final readonly class EmergencyCase
 You are not I. How do you know that I do not know the joy of fishes? — Zhuangzi (4th century BC)
 </div>
 
-Note: Zhuangzi was watching fish swim in a pond and said "The fish look happy." His friend replied, "You're not a fish — how do you know?" Zhuangzi answered, "You're not me — how do you know that I don't know?" — When you try to verify from the outside, it goes on forever. The inside knows better. $been means the object itself contains the evidence of "this is how I transformed." No external queries — self-certification.
+Note: Zhuangzi was watching fish swim in a pond and said "The fish look happy." His friend replied, "You're not a fish — how do you know?" Zhuangzi answered, "You're not me — how do you know that I don't know?" — When you try to verify from the outside, it goes on forever. The inside knows better. \$been means the object itself contains the evidence of "this is how I transformed." No external queries — self-certification.
 
 ---
 
@@ -680,7 +680,7 @@ final readonly class TriageAssessment
 }
 ```
 
-Note: It's not always a straight line. The $being property's type declares the possibilities, and the constructor self-determines the outcome. There's no external router doing the dispatching — existence itself chooses its next form.
+Note: It's not always a straight line. The \$being property's type declares the possibilities, and the constructor self-determines the outcome. There's no external router doing the dispatching — existence itself chooses its next form.
 
 ---
 
@@ -711,7 +711,7 @@ final class BodyTemperature {
 final class LethalVitalException extends DomainException {}
 ```
 
-Note: ⏱ 27:00 Layer 4: Payoff | From here it's a real example. Triage — the system for assessing patient urgency during emergency transport. All the concepts we've seen come together in one piece of code. First, semantic variables. The name $bodyTemperature prevents lethal vitals from existing.
+Note: ⏱ 27:00 Layer 4: Payoff | From here it's a real example. Triage — the system for assessing patient urgency during emergency transport. All the concepts we've seen come together in one piece of code. First, semantic variables. The name \$bodyTemperature prevents lethal vitals from existing.
 
 ---
 
@@ -759,7 +759,7 @@ final readonly class TriageAssessment
 }
 ```
 
-Note: The arriving patient carries immanence — body temperature and heart rate. There it meets the transcendence of the triage protocol, and $being determines its own fate.
+Note: The arriving patient carries immanence — body temperature and heart rate. There it meets the transcendence of the triage protocol, and \$being determines its own fate.
 
 ---
 
@@ -799,7 +799,7 @@ final readonly class ObservationCase
 }
 ```
 
-Note: Because it received Emergency $being, it becomes EmergencyCase and has the capability assignER(). With Observation $being, it becomes ObservationCase and has assignWaitingArea(). Being determines capability. The problem of a deleted user calling getName() doesn't exist here. — By the way, have you noticed there isn't a single technical name?
+Note: Because it received Emergency \$being, it becomes EmergencyCase and has the capability assignER(). With Observation \$being, it becomes ObservationCase and has assignWaitingArea(). Being determines capability. The problem of a deleted user calling getName() doesn't exist here. — By the way, have you noticed there isn't a single technical name?
 
 ---
 
@@ -953,7 +953,7 @@ ActiveUser → DeletedUser
 
 </div>
 
-Note: Remember `$user->delete()`? Even after calling delete(), $user remains. So maybe we should create a DeletedUser class? — But even with `$deleted = new DeletedUser($user)`, the original $user is still alive. `$user->post('goodbye')` still works. With BOP's Becoming, the original being vanishes and only DeletedUser remains. DeletedUser has no getName() or post(). Not erasure but transformation. This is the essence of Be, Don't Do — even deletion is described as being.
+Note: Remember `$user->delete()`? Even after calling delete(), \$user remains. So maybe we should create a DeletedUser class? — But even with `$deleted = new DeletedUser($user)`, the original \$user is still alive. `$user->post('goodbye')` still works. With BOP's Becoming, the original being vanishes and only DeletedUser remains. DeletedUser has no getName() or post(). Not erasure but transformation. This is the essence of Be, Don't Do — even deletion is described as being.
 
 ---
 
@@ -1032,7 +1032,7 @@ final class You
 
 </div>
 
-Note: ⏱ 38:30 Closing | $today is this very presentation. Soon this stage and I will be gone. But the influence lives on within $vision. Transcendence vanishes after construction — but it changes the immanence.
+Note: ⏱ 38:30 Closing | \$today is this very presentation. Soon this stage and I will be gone. But the influence lives on within \$vision. Transcendence vanishes after construction — but it changes the immanence.
 
 ---
 
@@ -1098,7 +1098,7 @@ Note: How did this feel to you? — When you encounter a new way of thinking, yo
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.depJpu1kZy","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.vxwFZm8FcH","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
     </script>
 
 
