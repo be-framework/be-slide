@@ -217,6 +217,10 @@
 Akihito Koriyama (@koriym)
 </div>
 
+Note: ⏱ 0:30 Opening | Look at this title. What a grandiose title. Creation of the universe? Has anyone here ever wanted to describe time and existence in PHP?
+
+You didn't come here to hear about solutions — you came because you're curious about a way of thinking you've never heard before.
+
 ---
 
 <!-- .slide: data-auto-animate -->
@@ -227,7 +231,7 @@ Akihito Koriyama (@koriym)
 A framework for seeing and thinking about the world
 </div>
 
-Note: ⏱ 0:30 Opening | Have you ever thought about paradigms? Today is a challenge. Don't interpret through the lens of what you already know. Set aside utility. Discomfort is evidence of cognitive expansion — enjoy it.
+Note: ⏱ 0:30 Opening | Today I'll talk about paradigms. A paradigm is a framework for how we see and think about the world. Take geocentrism, for example. When you look up, celestial bodies do appear to move. In fact, geocentrism was cutting-edge science for over 1,400 years. Then someone suggested maybe it's the Earth that's moving. From there the paradigm shifted, and we came to understand the heavens more deeply. Programming has paradigms too. The fundamental approach to building programs has changed over time. Before we dive in, I have one request. A new way of seeing always feels uncomfortable at first. Viewed through what you already know, it looks strange. We're pulled toward familiar approaches. But that's no fun. If you evaluate something new through old frameworks, you miss the essence. For the rest of this talk, please empty your mind and focus only on the possibilities.
 
 ---
 
@@ -271,7 +275,7 @@ $user->save();
 
 </div>
 
-Note: When I first wrote code on the 6502, I wondered how you could ever make Mario jump with this. Timeline: assembler appeared 1949, widespread in the 50s; procedural — FORTRAN 1957, C 1972, widespread 60s–70s; OOP — Alan Kay coined the term in 1967, Smalltalk-80, widespread in the 90s–2000s with Java/PHP.
+Note: This is 6502 assembler. It's the legendary CPU used in the Famicom and pre-Mac Apple computers, which appeared in the 1950s. Just to compute 1 + 2, you have to write all of this. Next is procedural programming, which appeared in the 1960s. It separates data and logic, describing procedures for manipulating data. Object-oriented programming appeared in the 1970s. It integrated data and the logic that operates on it, so you could describe things as objects.
 
 ---
 
@@ -311,7 +315,7 @@ $user->save();
 
 </div>
 
-Note: Looking back, paradigm shifts were expansions of how we perceive the world. Procedural let us describe things like recipes and workflows. OOP emerged from scaling problems. Today we explore another cognitive expansion — being and time.
+Note: Looking back, paradigm shifts were expansions of how we perceive the world. Assembler meant coding exactly what you saw through the machine's eyes. The number after 1, 2, 3, ... 9 wasn't 10.
 
 ---
 
@@ -328,7 +332,7 @@ $user->delete();
 echo $user->getName();  // "Alice" ? null ? exception ?
 ```
 
-Note: ⏱ 5:00 Layer 1: The Crack | We create Alice with new User('Alice'). $user is Alice. We delete Alice with delete(). What does $user represent now? Should getName() return "Alice"? null? — Neither feels right. A moment ago this seemed fine, but now it looks wrong. That shift is cognition changing. What we thought was object-oriented — $user never really represented a user — it was just a bundle of Doings. This foreshadows the title "Be, Don't Do". Later we'll connect this to DeletedUser.
+Note: ⏱ 5:00 Layer 1: The Crack | We create the Alice user with new User('Alice'). $user is Alice. We delete Alice with delete(). Should getName() return Alice? null? — Neither feels right. What does $user represent? ... There's no answer. Maybe $user never represented a user at all — it was just a symbol bundling operations on a user.
 
 ---
 
@@ -377,7 +381,7 @@ interface User {
 ```
 
 
-Note: Procedural programming separated data and logic. OOP was supposed to unify them. But in practice, we just collected methods — still procedural at heart. Everything is callable at once — there is no time. Pause here.
+Note: If Amazon's system had a User class, how many methods would it need? It's turned into a god class.
 
 ---
 
@@ -398,7 +402,7 @@ WHETHER?  Can it even exist? (Be)
 
 </div>
 
-Note: ⏱ 9:00 Layer 2: WHETHER? | Procedural → HOW, OOP → WHAT — these should be familiar. Ontological Programming → WHETHER. Emphasize WHETHER when speaking.
+Note: ⏱ 9:00 Layer 2 | Procedural is about how to do it — that's HOW.
 
 ---
 
@@ -417,7 +421,19 @@ You cannot die before you are born
 
 </div>
 
-Note: The difference from defensive programming — defensive programming validates with if-statements after something already exists. WHETHER? prevents things that cannot exist from ever coming into existence, and makes impossible actions unavailable.
+Note: Both are true. But "a person with negative age" can be prevented with defensive programming or value objects. But what about "you cannot die before you are born"?
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## A paradigm is defined by what it forbids
+
+- Structured programming forbade **goto**
+- Functional programming forbade **destructive assignment**
+- Be forbids **acting methods**, **orchestrators**, and **mutable state**
+
+Note: A paradigm is defined not by what it permits, but by what it forbids. Structured programming forbade goto. Functional programming forbade destructive assignment. Be forbids three things: methods that act on objects, orchestrators that command the whole, and mutable state. What becomes visible beyond these prohibitions is "being" itself.
 
 ---
 
@@ -436,7 +452,7 @@ public function register(string $email) {
 }
 ```
 
-Note: ⏱ 12:00 Layer 3: What Begins to Emerge | "You wrote $email, so why do you call filter_var every time? Shouldn't the name be enough?" — pose this as a question to the audience.
+Note: We're running filter_var on $email. But what if a variable named $email always contained a valid email?
 
 ---
 
@@ -467,7 +483,7 @@ public function __construct(string $email) {}
 Whatever exists, exists necessarily; whatever does not exist, cannot possibly exist — Spinoza (1677)
 </div>
 
-Note: Define it once, and it automatically applies to every constructor parameter named $email. The value in $email is not correct by accident — it is correct by necessity. What cannot be correct simply cannot exist.
+Note: Semantic variables solve this. Variables carry meaning and constraints. Define it once, and it automatically applies to every constructor parameter named $email. The value in $email is not correct by accident — it is correct by necessity. What isn't correct simply cannot exist. — Spinoza's "necessary existence" sounds difficult, but think about it: the reason you can sit here and listen to me right now is that your heart is beating, you're breathing, you're alive. The preconditions for existence are met. Semantic variables are the same — if $email exists, it's already correct.
 
 ---
 
@@ -504,7 +520,7 @@ public function __construct(
 ) {}
 ```
 
-Note: Just by writing $confirmEmail, its match with $email is automatically verified. Same for $min and $max. Names define not just individual constraints but relationships between variables.
+Note: Just by writing $confirmEmail, its match with $email is automatically verified. Same for $min and $max. This is what it means for names to become constraints.
 
 ---
 
@@ -526,7 +542,7 @@ public function __construct(
 Kotodama — the spiritual power dwelling in words. Names define reality — Japan
 </div>
 
-Note: Not just format validation. The power of names extends from value ranges to business rules. Truly kotodama.
+Note: Not just format validation. The power of names extends from value ranges to business rules. You can even use DI. Names define reality — truly kotodama.
 
 ---
 
@@ -546,7 +562,7 @@ Egg → Larva → Chrysalis → Butterfly
 No man ever steps in the same river twice — Heraclitus (5th century BC)
 </div>
 
-Note: A chrysalis cannot revert to an egg. A specialist doesn't go back to being an intern. A saved user doesn't revert to raw data. Domain and time are inseparable — real existence is always situated in time. OOP has ignored this. We express irreversible transformation in code.
+Note: We say "the river flows," but the flowing IS the river — the river's very existence. Existence and change cannot be separated. That's why you can never step into the same river twice — because it's always changing, you can never go back. A chrysalis cannot revert to an egg. What has transformed cannot return to what it was before.
 
 ---
 
@@ -572,7 +588,7 @@ public Emergency|Observation $being;
 Aristotle called this dynamis (potentiality) — 4th century BC
 </div>
 
-Note: An order and its cancellation don't exist separately. The order contains the possibility of cancellation within itself. $being declares everything an object can become. This is not an if-statement — it's not external routing, but existence discovering itself.
+Note: The moment you write Success|Failure, the possible destinies of this process are declared. Aristotle called this dynamis — potentiality. An order carries the possibility of cancellation within itself. $being works the same way: it declares everything it can become.
 
 ---
 
@@ -605,7 +621,7 @@ final readonly class EmergencyCase
 You are not I. How do you know that I do not know the joy of fishes? — Zhuangzi (4th century BC)
 </div>
 
-Note: Introduce Zhuangzi's fish parable. If you delete and then can't read, is it gone? — You don't trust delete, yet you trust read? External verification is circular. $been means the object itself contains proof of completion — intrinsic self-certification, not external verification.
+Note: Zhuangzi was watching fish swim in a pond and said "The fish look happy." His friend replied, "You're not a fish — how do you know?" Zhuangzi answered, "You're not me — how do you know that I don't know?" — When you try to verify from the outside, it goes on forever. The inside knows better. $been means the object itself contains the evidence of "this is how I transformed." No external queries — self-certification.
 
 ---
 
@@ -621,7 +637,7 @@ Immanence (what you carry) × Transcendence (what you meet) ＝ A transformed se
 Transcendence within immanence (Transzendenz in der Immanenz) — Husserl, Ideas (1913)
 </div>
 
-Note: A seed meets soil and water — and becomes a sprout. A child meets teachers and friends — and grows. Flour meets yeast and water — and becomes bread. Everything follows the same pattern. What you carry within meets what comes from outside, and you become a transformed self. After the transformation, you can no longer tell what was inside from what came from outside. Husserl called this "transcendence within immanence." In the code that follows, you'll see this pattern in action.
+Note: A seed meets soil and water — and becomes a sprout. A child meets teachers and friends — and grows. Flour meets yeast and water — and becomes bread. Everything follows the same pattern. What you carry within meets what comes from outside, and you become a transformed self. After the transformation, you can no longer tell what was inside from what came from outside. In the code that follows, you'll see this pattern in action.
 
 ---
 
@@ -639,7 +655,7 @@ Each class defines not what it does, but what it is
 Entelechy — that which has its purpose within itself — Aristotle (4th century BC)
 </div>
 
-Note: We are thrown into the world. But there is directionality — the will to become who we are meant to be. Like an RPG hero encountering the outside world and growing. You won't become a rock star tomorrow. Possibilities are finite and directional. Each class defines not what it does but what it is. Not a bundle of Doing methods, but a chain of Beings.
+Note: Change has direction. An acorn becomes an oak tree, not a rose. OrderInput becomes DeliveredOrder, not User. Aristotle called this entelechy — that which has its purpose within itself. Possibilities are not infinite; they are finite and directional.
 
 ---
 
@@ -664,7 +680,7 @@ final readonly class TriageAssessment
 }
 ```
 
-Note: It's not always a straight line. The $being property's type declares the possibilities, and the constructor self-determines the outcome. Not an external router or if-statement — existence itself chooses its next form. This is the mechanism of metamorphosis.
+Note: It's not always a straight line. The $being property's type declares the possibilities, and the constructor self-determines the outcome. There's no external router doing the dispatching — existence itself chooses its next form.
 
 ---
 
@@ -695,7 +711,7 @@ final class BodyTemperature {
 final class LethalVitalException extends DomainException {}
 ```
 
-Note: ⏱ 27:00 Layer 4: Payoff | Triage — the medical system for assessing patient urgency during emergency transport and prioritizing treatment.
+Note: ⏱ 27:00 Layer 4: Payoff | From here it's a real example. Triage — the system for assessing patient urgency during emergency transport. All the concepts we've seen come together in one piece of code. First, semantic variables. The name $bodyTemperature prevents lethal vitals from existing.
 
 ---
 
@@ -743,6 +759,8 @@ final readonly class TriageAssessment
 }
 ```
 
+Note: The arriving patient carries immanence — body temperature and heart rate. There it meets the transcendence of the triage protocol, and $being determines its own fate.
+
 ---
 
 <!-- .slide: data-auto-animate -->
@@ -781,7 +799,7 @@ final readonly class ObservationCase
 }
 ```
 
-Note: EmergencyCase has no assignWaitingArea(). ObservationCase has no assignER(). Type determines capability. The dead-object-talking problem doesn't exist here. This also resonates with DDD — every class name and method name is a business term. No technical names.
+Note: Because it received Emergency $being, it becomes EmergencyCase and has the capability assignER(). With Observation $being, it becomes ObservationCase and has assignWaitingArea(). Being determines capability. The problem of a deleted user calling getName() doesn't exist here. — By the way, have you noticed there isn't a single technical name?
 
 ---
 
@@ -804,7 +822,7 @@ Note: EmergencyCase has no assignWaitingArea(). ObservationCase has no assignER(
 Language is the house of being — Heidegger (1947)
 </div>
 
-Note: ⏱ 31:00 Synthesis | The patient is not processed. The patient transforms. Language is the house of being — class names describe the subject's transformation and construct the world. How you change, each state of being and its temporal irreversibility — that is the foundation of the architecture. Input → Being → Final is Request → Process → Response — the very structure of the web.
+Note: ⏱ 31:00 Synthesis | Language is the house of being — just as glasses become a window to the world for someone who can't see without them, we perceive existence through language. Here, class names describe the subject's transformation and construct the world. And one more thing — the patient is not processed. The patient itself meets immanence and transcendence, and transforms. Input, Being, Final — the arriving patient becomes what it is meant to be.
 
 ---
 
@@ -844,7 +862,7 @@ Note: ⏱ 31:00 Synthesis | The patient is not processed. The patient transforms
 The Tao does nothing, yet nothing is left undone — Laozi (6th century BC)
 </div>
 
-Note: No matter where you look, the same structure appears. Immanence meets transcendence and becomes new immanence — just repeating Husserl's pattern. This diagram can be generated from code. Architecture is documentation — the DDD ideal. No one is in control. Each part is autonomous, forming a complex system. No one controls a food chain, yet it has functioned stably for hundreds of millions of years. Laozi's wu wei.
+Note: Laozi said — when you want to move water, don't move the water, create a valley. Let go of control and build a mechanism where things move autonomously. Orders flow and arrive where they should. No one in this diagram knows everything. Each part knows only what's before and after it, and harmony emerges without a central controller. Wu wei — non-action.
 
 ---
 
@@ -865,7 +883,25 @@ $final = $becoming(new OrderInput(
 What has arisen perishes in that very instant. Its cessation requires no other cause. — Mahāvibhāṣā (2nd c.)
 </div>
 
-Note: OrderInput enters, vanishes within Becoming, and a new being emerges as $final. What 2nd-century Buddhist scholars saw — what arises perishes in that very instant. No need to call destroy() from outside. Its cessation requires no other cause.
+Note: OrderInput vanishes the instant it enters Becoming. It remains nowhere. The next class is born, and it too vanishes, and another is born. From a long shot, it's change. In close-up, it's repeated destruction and creation. What 2nd-century Buddhist scholars perceived — what has arisen perishes in that very instant. Its cessation requires no other cause.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Atomicity of being — Moment
+
+Inventory, payment, and shipping commit only when all of them can exist.
+
+```php
+$inventory->be();  // confirm the reservation (realizing a Potential)
+$payment->be();    // confirm the capture
+$shipping->be();   // confirm the arrangement
+```
+
+The Final completes itself in its constructor. No conductor.
+
+Note: How do you coordinate multiple external side effects? The answer is the Moment — a part of the whole that holds a potential. A Reason returns a Potential, an operation not yet committed. The world changes only when the Final calls be() on every Moment. All commit together, or none at all. No conductor.
 
 ---
 
@@ -885,7 +921,7 @@ AI:     Solve HOW — how to realize it
 
 </div>
 
-Note: ⏱ 35:00 Declaration + DX→AX | Remember the diagram? AI can understand it too. The Input → Being → Final structure is also a set of constraints that AI can verify and comprehend. BOP is a way of perceiving the world for humans and AI alike. Being sits at that intersection.
+Note: ⏱ 35:00 Declaration + DX→AX | Remember the diagram? AI can understand it too. The Input → Being → Final structure is also a set of constraints that AI can verify and comprehend. Humans define the conditions of existence, AI solves the implementation — Being sits at that intersection.
 
 ---
 
@@ -898,7 +934,26 @@ Tell, Don't Ask — Object Oriented<br>
 
 </div>
 
-Note: Tell, Don't Ask means don't query objects, command them (Pragmatic Programmers). Be, Don't Do goes further — don't command, define existence. BOP = Being Oriented Programming.
+Note: Tell, Don't Ask — don't query objects, command them. Integrate data and logic and let the object itself handle the processing. Be, Don't Do — don't even command. Define not what to do, but what to be. Be yourself.
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+## Deletion is Also Being
+
+<div class="callout">
+
+```
+$user->delete() // $user?
+$deleted = new DeletedUser($user) // $user?
+
+ActiveUser → DeletedUser
+```
+
+</div>
+
+Note: Remember `$user->delete()`? Even after calling delete(), $user remains. So maybe we should create a DeletedUser class? — But even with `$deleted = new DeletedUser($user)`, the original $user is still alive. `$user->post('goodbye')` still works. With BOP's Becoming, the original being vanishes and only DeletedUser remains. DeletedUser has no getName() or post(). Not erasure but transformation. This is the essence of Be, Don't Do — even deletion is described as being.
 
 ---
 
@@ -914,7 +969,7 @@ Note: Tell, Don't Ask means don't query objects, command them (Pragmatic Program
 | Correctness | Verified by tests | Existence itself is proof |
 | Developer | Someone who implements | Someone who defines conditions of existence |
 
-Note: cat log | grep | sort — pipes process data from the outside (others change it). Be means the object transforms itself (self-change). The subject is different.
+Note: By the way, Unix pipes are similar in terms of chaining transformations. cat | grep | sort — but pipes process data from the outside. Be means the object itself transforms. The subject is different.
 
 ---
 
@@ -937,7 +992,7 @@ Note: cat log | grep | sort — pipes process data from the outside (others chan
 
 </div>
 
-Note: ⏱ 37:00 Convergence | People across different eras, cultures, and languages arrived at the same place. The philosophers are not authorities but witnesses. The patterns emerged first; the philosophical parallels became apparent later.
+Note: ⏱ 37:00 Convergence | People across different eras, cultures, and languages arrived at the same place. Philosophers from the question of truth, and we from the question of the domain. The essence of the question was the same.
 
 ---
 
@@ -953,7 +1008,7 @@ Note: ⏱ 37:00 Convergence | People across different eras, cultures, and langua
 Ted Nelson — from the experience of putting his hand in the water from a boat on a lake, at age five
 </div>
 
-Note: Young Nelson put his hand in the water and was captivated by the relationship between his hand's movement and the water's flow. He hyper-generalized it into "the world is a system of ever-changing relationships and structures." The inventor of hypertext arrived at the same place as the philosophers.
+Note: A five-year-old boy put his hand in the water from a boat. He was captivated by the relationship between his hand's movement and the water's flow. From that experience he concluded: "The world is a system of ever-changing relationships and structures." This boy later invented hypertext. You don't have to be a philosopher — if you carry the question, you arrive at the same place.
 
 ---
 
@@ -977,7 +1032,7 @@ final class You
 
 </div>
 
-Note: ⏱ 38:30 Closing | $today is this very presentation. It's gone after construction — but its influence lives on within $vision. Transcendence within immanence. The childhood friend is gone, but the experience remains.
+Note: ⏱ 38:30 Closing | $today is this very presentation. Soon this stage and I will be gone. But the influence lives on within $vision. Transcendence vanishes after construction — but it changes the immanence.
 
 ---
 
@@ -989,7 +1044,9 @@ Note: ⏱ 38:30 Closing | $today is this very presentation. It's gone after cons
 
 </div>
 
-Note: How did this feel to you? It may have seemed strange. But perhaps some of it resonated. — When you encounter a new way of thinking, you can take one of two stances. OOP seemed strange in the era of procedural programming alone. But now it's taken for granted. Will you try it with curiosity, or wait until everyone else succeeds first? Neither is wrong. But that choice shapes who you become tomorrow. Beyond what you want to do (Doing) as a developer — who do you want to be (Being)? What is your $being?
+Note: How did this feel to you? — When you encounter a new way of thinking, you can take one of two stances. In the era of procedural programming alone, OOP seemed strange. Will you try it with curiosity, or wait until everyone else succeeds first? Neither is wrong. But that choice shapes who you become tomorrow. What kind of engineer, what kind of being do you want to be?
+
+
           </textarea>
         </section>
       </div>
@@ -1041,7 +1098,7 @@ Note: How did this feel to you? It may have seemed strange. But perhaps some of 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.YSZb3o7MS1","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides-en.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.depJpu1kZy","absolute-url":"https://be-framework.github.io/be-slide/slides-en.html","absoluteUrl":"https://be-framework.github.io/be-slide/slides-en.html"}, queryOptions);
     </script>
 
 
@@ -1058,7 +1115,10 @@ Note: How did this feel to you? It may have seemed strange. But perhaps some of 
       const mermaidOptions = extend({ startOnLoad: false }, {});
       mermaid.startOnLoad = false;
       mermaid.initialize(mermaidOptions);
-      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      const cb = function (event) {
+        mermaid.init(mermaidOptions, '.stack.present > .present pre code.mermaid');
+        mermaid.init(mermaidOptions, '.slides > .present:not(.stack) pre code.mermaid');
+      }
       Reveal.addEventListener('ready', cb);
       Reveal.addEventListener('slidetransitionend', cb);
     </script>
