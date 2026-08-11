@@ -454,18 +454,6 @@ Note: どちらも真実です。しかし「年齢がマイナス」は防御�
 
 <!-- .slide: data-auto-animate -->
 
-## パラダイムは「禁じるもの」で定義される
-
-- 構造化プログラミング — **goto** を禁じた
-- 関数型 — **破壊的代入** を禁じた
-- Be — **作用するメソッド**を禁じる、**オーケストレーター**を禁じる、**可変状態**を禁じる
-
-Note: パラダイムは、何ができるかではなく何を禁じるかで定義されます。構造化プログラミングはgotoを禁じ、関数型は破壊的代入を禁じました。Beは3つを禁じます。オブジェクトに何かをさせる「作用するメソッド」。全体を指揮する「オーケストレーター」。あとから書き換えられる「可変状態」。禁じた先に見えてくるのが「存在」です。
-
----
-
-<!-- .slide: data-auto-animate -->
-
 <div class="layer-label">第3層：見え始めるもの</div>
 
 ## `$email` と書いたのに
@@ -916,24 +904,6 @@ Note: OrderInputはBecomingに入った瞬間に消える。どこにも残ら�
 
 <!-- .slide: data-auto-animate -->
 
-## 存在の原子性 — Moment
-
-在庫引当・課金・配送は「すべて存在できる時だけ確定する」
-
-```php
-$inventory->be();  // 予約の確定（Potentialの実現）
-$payment->be();    // キャプチャの確定
-$shipping->be();   // 手配の確定
-```
-
-Finalのコンストラクタで自己完了する。指揮者はいない。
-
-Note: 複数の外部副作用をどうまとめるか、という質問への答えがMomentです。全体の部分でありながら、実現を待つ可能態。ReasonがPotential——まだ確定していない操作——を返し、Finalがすべてのbe()を呼んだ時だけ世界が変わる。全部が存在できる時だけ、全部が確定します。指揮者はいません。
-
----
-
-<!-- .slide: data-auto-animate -->
-
 ## DX から AX へ
 
 <div class="callout">
@@ -1125,7 +1095,7 @@ Note: ここまで聞いてどう感じましたか？ ——新しい考え方�
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.3AKLPr64Bt","absolute-url":"https://be-framework.github.io/be-slide","absoluteUrl":"https://be-framework.github.io/be-slide"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides.md"],"static":"/var/folders/bc/r8s1n7x93md3t_r6mqpy9xj40000gn/T/tmp.r553dbTh92","absolute-url":"https://be-framework.github.io/be-slide","absoluteUrl":"https://be-framework.github.io/be-slide"}, queryOptions);
     </script>
 
 
